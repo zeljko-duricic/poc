@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_documentation element="sys_class_name" label="Class" language="en" table="x_hirp_poc_task">
+        <sys_documentation action="INSERT_OR_UPDATE">
+            <element>sys_class_name</element>
+            <help/>
+            <hint/>
+            <label>Class</label>
+            <language>en</language>
+            <name>x_hirp_poc_task</name>
+            <plural>Class</plural>
+            <sys_class_name>sys_documentation</sys_class_name>
+            <sys_created_by>durizel@hilti.com</sys_created_by>
+            <sys_created_on>2021-09-20 07:47:13</sys_created_on>
+            <sys_id>d323178487ba34103dff653f8bbb3516</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>Class</sys_name>
+            <sys_package display_value="PoC" source="x_hirp_poc">a4e25f4487ba34103dff653f8bbb3546</sys_package>
+            <sys_policy/>
+            <sys_scope display_value="PoC">a4e25f4487ba34103dff653f8bbb3546</sys_scope>
+            <sys_update_name>sys_documentation_x_hirp_poc_task_sys_class_name_en</sys_update_name>
+            <sys_updated_by>durizel@hilti.com</sys_updated_by>
+            <sys_updated_on>2021-09-20 07:47:13</sys_updated_on>
+            <url/>
+            <url_target/>
+        </sys_documentation>
+    </sys_documentation>
+</record_update>
