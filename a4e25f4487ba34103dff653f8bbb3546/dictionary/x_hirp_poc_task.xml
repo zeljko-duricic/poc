@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?><database>
     <element label="Task" max_length="40" name="x_hirp_poc_task" type="collection">
-        <element display="true" label="Comment" max_length="30" name="comment" type="string"/>
+        <element label="Comment" max_length="30" name="comment" type="string"/>
         <element attributes="edge_encryption_enabled=true" label="PK" max_length="40" name="pk" type="string"/>
         <element default="javascript:current.getTableName();" label="Class" max_length="80" name="sys_class_name" type="sys_class_name"/>
+        <element display="true" label="TaskNo" max_length="18" name="taskno" type="string"/>
         <index name="index">
             <element name="sys_class_name"/>
         </index>
