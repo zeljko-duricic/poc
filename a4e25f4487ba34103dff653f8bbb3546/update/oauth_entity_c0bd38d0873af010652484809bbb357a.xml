@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="oauth_entity">
+    <oauth_entity action="INSERT_OR_UPDATE">
+        <access>public</access>
+        <access_token_lifespan>1800</access_token_lifespan>
+        <active>true</active>
+        <auth_code_lifespan>0</auth_code_lifespan>
+        <auth_url/>
+        <certificate_url/>
+        <client_id>3MVG90J3nJBMnqrQYlUQOI3V263abNjU7Hlhl4KM9be0Sye7BudjnVJVUgBLhTBdxmwL6YJys58JmRNkkskWV</client_id>
+        <client_secret>XiazW+ZpRv1z483AcRhRT7Bf/lmr9tqq9cvyw5rbxi3QL22NKy/T9AS8UwWprgHy/hHPWarNXmnKoc4anljBYnsxpJr4TKMY</client_secret>
+        <client_uuid>40bd38d0873af010652484809bbb357a</client_uuid>
+        <code_challenge_method>S256</code_challenge_method>
+        <comments/>
+        <default_grant_type>urn:ietf:params:oauth:grant-type:jwt-bearer</default_grant_type>
+        <id_token_lifespan>0</id_token_lifespan>
+        <logo_url/>
+        <message_signature_lifespan>0</message_signature_lifespan>
+        <name>Salesforce OAuth</name>
+        <oauth_api_script/>
+        <protocol_name/>
+        <public_client>false</public_client>
+        <redirect_url>https://hiltiexperiencepov.service-now.com/oauth_redirect.do</redirect_url>
+        <refresh_token_lifespan>8640000</refresh_token_lifespan>
+        <refresh_token_url/>
+        <restricted_binding>false</restricted_binding>
+        <revoke_token_url/>
+        <salt>0</salt>
+        <send_client_credentials_as>request_body_parameter</send_client_credentials_as>
+        <skip_authorize>false</skip_authorize>
+        <sys_class_name>oauth_entity</sys_class_name>
+        <sys_created_by>zeljko.duricic@hilti.com</sys_created_by>
+        <sys_created_on>2021-09-20 15:33:44</sys_created_on>
+        <sys_id>c0bd38d0873af010652484809bbb357a</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Salesforce OAuth</sys_name>
+        <sys_package display_value="PoC" source="x_hirp_poc">a4e25f4487ba34103dff653f8bbb3546</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="PoC">a4e25f4487ba34103dff653f8bbb3546</sys_scope>
+        <sys_update_name>oauth_entity_c0bd38d0873af010652484809bbb357a</sys_update_name>
+        <sys_updated_by>zeljko.duricic@hilti.com</sys_updated_by>
+        <sys_updated_on>2021-09-20 15:33:44</sys_updated_on>
+        <token_url>https://test.salesforce.com/services/oauth2/token</token_url>
+        <type>oauth_provider</type>
+        <use_mutual_auth>false</use_mutual_auth>
+        <user/>
+    </oauth_entity>
+</record_update>
