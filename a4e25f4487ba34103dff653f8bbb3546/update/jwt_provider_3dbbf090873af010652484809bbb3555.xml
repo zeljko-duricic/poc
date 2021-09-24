@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="jwt_provider">
+    <jwt_provider action="INSERT_OR_UPDATE">
+        <expiry_interval>60</expiry_interval>
+        <jwt_api_script/>
+        <jwt_keystore_alias display_value="Salesforce JWT Key">964bbc50873af010652484809bbb3568</jwt_keystore_alias>
+        <name>Salesforce JWT Provider</name>
+        <sys_class_name>jwt_provider</sys_class_name>
+        <sys_created_by>zeljko.duricic@hilti.com</sys_created_by>
+        <sys_created_on>2021-09-20 15:24:16</sys_created_on>
+        <sys_id>3dbbf090873af010652484809bbb3555</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Salesforce JWT Provider</sys_name>
+        <sys_package display_value="PoC" source="x_hirp_poc">a4e25f4487ba34103dff653f8bbb3546</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="PoC">a4e25f4487ba34103dff653f8bbb3546</sys_scope>
+        <sys_update_name>jwt_provider_3dbbf090873af010652484809bbb3555</sys_update_name>
+        <sys_updated_by>zeljko.duricic@hilti.com</sys_updated_by>
+        <sys_updated_on>2021-09-20 15:24:16</sys_updated_on>
+    </jwt_provider>
+</record_update>
