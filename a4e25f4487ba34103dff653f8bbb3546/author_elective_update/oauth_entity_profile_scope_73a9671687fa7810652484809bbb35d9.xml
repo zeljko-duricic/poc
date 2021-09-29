@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="oauth_entity_profile_scope">
+    <oauth_entity_profile_scope action="DELETE">
+        <oauth_entity_profile display_value="Hilti Cloud Provider default_profile">9ca62b9287fa7810652484809bbb353d</oauth_entity_profile>
+        <oauth_entity_scope display_value="scope">d5e6eb9287fa7810652484809bbb3571</oauth_entity_scope>
+        <sys_class_name>oauth_entity_profile_scope</sys_class_name>
+        <sys_created_by>durizel@hilti.com</sys_created_by>
+        <sys_created_on>2021-09-27 09:12:19</sys_created_on>
+        <sys_id>73a9671687fa7810652484809bbb35d9</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>9ca62b9287fa7810652484809bbb353d</sys_name>
+        <sys_package display_value="PoC" source="x_hirp_poc">a4e25f4487ba34103dff653f8bbb3546</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="PoC">a4e25f4487ba34103dff653f8bbb3546</sys_scope>
+        <sys_update_name>oauth_entity_profile_scope_73a9671687fa7810652484809bbb35d9</sys_update_name>
+        <sys_updated_by>durizel@hilti.com</sys_updated_by>
+        <sys_updated_on>2021-09-27 09:12:19</sys_updated_on>
+    </oauth_entity_profile_scope>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="PoC">a4e25f4487ba34103dff653f8bbb3546</application>
+        <file_path/>
+        <instance_id>da2b2b47db2e301052dd2f17d49619ca</instance_id>
+        <instance_name>hiltiexperiencepov</instance_name>
+        <name>oauth_entity_profile_scope_73a9671687fa7810652484809bbb35d9</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="oauth_entity_profile_scope"><oauth_entity_profile_scope action="INSERT_OR_UPDATE"><oauth_entity_profile display_value="Hilti Cloud Provider default_profile">9ca62b9287fa7810652484809bbb353d</oauth_entity_profile><oauth_entity_scope display_value="scope">d5e6eb9287fa7810652484809bbb3571</oauth_entity_scope><sys_class_name>oauth_entity_profile_scope</sys_class_name><sys_created_by>durizel@hilti.com</sys_created_by><sys_created_on>2021-09-27 09:12:19</sys_created_on><sys_id>73a9671687fa7810652484809bbb35d9</sys_id><sys_mod_count>0</sys_mod_count><sys_name>9ca62b9287fa7810652484809bbb353d</sys_name><sys_package display_value="PoC" source="x_hirp_poc">a4e25f4487ba34103dff653f8bbb3546</sys_package><sys_policy/><sys_scope display_value="PoC">a4e25f4487ba34103dff653f8bbb3546</sys_scope><sys_update_name>oauth_entity_profile_scope_73a9671687fa7810652484809bbb35d9</sys_update_name><sys_updated_by>durizel@hilti.com</sys_updated_by><sys_updated_on>2021-09-27 09:12:19</sys_updated_on></oauth_entity_profile_scope></record_update>]]></payload>
+        <payload_hash>-690994752</payload_hash>
+        <record_name>9ca62b9287fa7810652484809bbb353d</record_name>
+        <reverted_from/>
+        <source>a5b913c887ba34103dff653f8bbb35a0</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>durizel@hilti.com</sys_created_by>
+        <sys_created_on>2021-09-27 09:12:19</sys_created_on>
+        <sys_id>46c92b1687fa7810652484809bbb35e7</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>17c2686c7db0000001</sys_recorded_at>
+        <sys_updated_by>durizel@hilti.com</sys_updated_by>
+        <sys_updated_on>2021-09-27 09:12:19</sys_updated_on>
+        <type>OAuth Entity Profile Scope</type>
+        <update_guid>8ec92b16a5fa78101c0dbe9fec9e3be6</update_guid>
+        <update_guid_history>8ec92b16a5fa78101c0dbe9fec9e3be6:-690994752</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete display_value="Hilti Cloud Provider default_profile">9396775e87fa7810652484809bbb35d1</sys_audit_delete>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>durizel@hilti.com</sys_created_by>
+        <sys_created_on>2021-09-27 10:08:23</sys_created_on>
+        <sys_db_object display_value="" name="oauth_entity_profile_scope">oauth_entity_profile_scope</sys_db_object>
+        <sys_id>685565491f4f4c7aa6a4fd9662d7d464</sys_id>
+        <sys_metadata>73a9671687fa7810652484809bbb35d9</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>9ca62b9287fa7810652484809bbb353d</sys_name>
+        <sys_package display_value="PoC" source="x_hirp_poc">a4e25f4487ba34103dff653f8bbb3546</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="PoC">a4e25f4487ba34103dff653f8bbb3546</sys_scope>
+        <sys_scope_delete display_value="">2f5660ff8ac94904b777e7985faa8604</sys_scope_delete>
+        <sys_update_name>oauth_entity_profile_scope_73a9671687fa7810652484809bbb35d9</sys_update_name>
+        <sys_update_version display_value="oauth_entity_profile_scope_73a9671687fa7810652484809bbb35d9">46c92b1687fa7810652484809bbb35e7</sys_update_version>
+        <sys_updated_by>durizel@hilti.com</sys_updated_by>
+        <sys_updated_on>2021-09-27 10:08:23</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

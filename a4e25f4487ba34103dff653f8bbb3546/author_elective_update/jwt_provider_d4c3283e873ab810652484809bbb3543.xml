@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="jwt_provider">
+    <jwt_provider action="DELETE">
+        <expiry_interval>60</expiry_interval>
+        <jwt_api_script/>
+        <jwt_keystore_alias display_value="Salesforce JWT Key">964bbc50873af010652484809bbb3568</jwt_keystore_alias>
+        <name>PoC SF-SN Inbound JWT Provider</name>
+        <sys_class_name>jwt_provider</sys_class_name>
+        <sys_created_by>durizel@hilti.com</sys_created_by>
+        <sys_created_on>2021-09-28 08:05:03</sys_created_on>
+        <sys_id>d4c3283e873ab810652484809bbb3543</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>PoC SF-SN Inbound JWT Provider</sys_name>
+        <sys_package display_value="PoC" source="x_hirp_poc">a4e25f4487ba34103dff653f8bbb3546</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="PoC">a4e25f4487ba34103dff653f8bbb3546</sys_scope>
+        <sys_update_name>jwt_provider_d4c3283e873ab810652484809bbb3543</sys_update_name>
+        <sys_updated_by>durizel@hilti.com</sys_updated_by>
+        <sys_updated_on>2021-09-28 08:05:03</sys_updated_on>
+    </jwt_provider>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="PoC">a4e25f4487ba34103dff653f8bbb3546</application>
+        <file_path/>
+        <instance_id>da2b2b47db2e301052dd2f17d49619ca</instance_id>
+        <instance_name>hiltiexperiencepov</instance_name>
+        <name>jwt_provider_d4c3283e873ab810652484809bbb3543</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="jwt_provider"><jwt_provider action="INSERT_OR_UPDATE"><expiry_interval>60</expiry_interval><jwt_api_script/><jwt_keystore_alias display_value="Salesforce JWT Key">964bbc50873af010652484809bbb3568</jwt_keystore_alias><name>PoC SF-SN Inbound JWT Provider</name><sys_class_name>jwt_provider</sys_class_name><sys_created_by>durizel@hilti.com</sys_created_by><sys_created_on>2021-09-28 08:05:03</sys_created_on><sys_id>d4c3283e873ab810652484809bbb3543</sys_id><sys_mod_count>0</sys_mod_count><sys_name>PoC SF-SN Inbound JWT Provider</sys_name><sys_package display_value="PoC" source="x_hirp_poc">a4e25f4487ba34103dff653f8bbb3546</sys_package><sys_policy/><sys_scope display_value="PoC">a4e25f4487ba34103dff653f8bbb3546</sys_scope><sys_update_name>jwt_provider_d4c3283e873ab810652484809bbb3543</sys_update_name><sys_updated_by>durizel@hilti.com</sys_updated_by><sys_updated_on>2021-09-28 08:05:03</sys_updated_on></jwt_provider></record_update>]]></payload>
+        <payload_hash>1691039444</payload_hash>
+        <record_name>PoC SF-SN Inbound JWT Provider</record_name>
+        <reverted_from/>
+        <source>a5b913c887ba34103dff653f8bbb35a0</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>durizel@hilti.com</sys_created_by>
+        <sys_created_on>2021-09-28 08:05:03</sys_created_on>
+        <sys_id>22f32c3e873ab810652484809bbb35d5</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>17c2b6f8dfb0000001</sys_recorded_at>
+        <sys_updated_by>durizel@hilti.com</sys_updated_by>
+        <sys_updated_on>2021-09-28 08:05:03</sys_updated_on>
+        <type>JWT Provider</type>
+        <update_guid>a2f3a83eac3ab810b362e1151e6d3873</update_guid>
+        <update_guid_history>a2f3a83eac3ab810b362e1151e6d3873:1691039444</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete display_value="PoC SF-SN Inbound JWT Provider">db14ac3e873ab810652484809bbb35ae</sys_audit_delete>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>durizel@hilti.com</sys_created_by>
+        <sys_created_on>2021-09-28 08:05:39</sys_created_on>
+        <sys_db_object display_value="" name="jwt_provider">jwt_provider</sys_db_object>
+        <sys_id>3d0ca50ce83945f39e12312f42945171</sys_id>
+        <sys_metadata>d4c3283e873ab810652484809bbb3543</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>PoC SF-SN Inbound JWT Provider</sys_name>
+        <sys_package display_value="PoC" source="x_hirp_poc">a4e25f4487ba34103dff653f8bbb3546</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="PoC">a4e25f4487ba34103dff653f8bbb3546</sys_scope>
+        <sys_scope_delete display_value="">2f5660ff8ac94904b777e7985faa8604</sys_scope_delete>
+        <sys_update_name>jwt_provider_d4c3283e873ab810652484809bbb3543</sys_update_name>
+        <sys_update_version display_value="jwt_provider_d4c3283e873ab810652484809bbb3543">22f32c3e873ab810652484809bbb35d5</sys_update_version>
+        <sys_updated_by>durizel@hilti.com</sys_updated_by>
+        <sys_updated_on>2021-09-28 08:05:39</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_app_application">
+    <sys_app_application action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <category display_value="Custom Applications">e0355b31ef303000a61d5a3615c0fb78</category>
+        <description/>
+        <device_type>browser</device_type>
+        <hint/>
+        <name>Salesforce Opportunity</name>
+        <order>100</order>
+        <roles>x_hirp_poc.salesforce_opportunity_user</roles>
+        <sys_class_name>sys_app_application</sys_class_name>
+        <sys_created_by>durizel@hilti.com</sys_created_by>
+        <sys_created_on>2021-09-28 08:53:29</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>f30f2c36877ab810652484809bbb359b</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Salesforce Opportunity</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="PoC" source="x_hirp_poc">a4e25f4487ba34103dff653f8bbb3546</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="PoC">a4e25f4487ba34103dff653f8bbb3546</sys_scope>
+        <sys_update_name>sys_app_application_f30f2c36877ab810652484809bbb359b</sys_update_name>
+        <sys_updated_by>durizel@hilti.com</sys_updated_by>
+        <sys_updated_on>2021-09-28 08:53:29</sys_updated_on>
+        <title>Salesforce Opportunity</title>
+        <view_name/>
+    </sys_app_application>
+</record_update>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="oauth_entity_profile_scope">
+    <oauth_entity_profile_scope action="INSERT_OR_UPDATE">
+        <oauth_entity_profile display_value="Hilti Cloud Provider default_profile">9ca62b9287fa7810652484809bbb353d</oauth_entity_profile>
+        <oauth_entity_scope display_value="scope">9fe3f8e687be7810652484809bbb355e</oauth_entity_scope>
+        <sys_class_name>oauth_entity_profile_scope</sys_class_name>
+        <sys_created_by>durizel@hilti.com</sys_created_by>
+        <sys_created_on>2021-09-27 14:38:41</sys_created_on>
+        <sys_id>8764f8e687be7810652484809bbb3541</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>9ca62b9287fa7810652484809bbb353d</sys_name>
+        <sys_package display_value="PoC" source="x_hirp_poc">a4e25f4487ba34103dff653f8bbb3546</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="PoC">a4e25f4487ba34103dff653f8bbb3546</sys_scope>
+        <sys_update_name>oauth_entity_profile_scope_8764f8e687be7810652484809bbb3541</sys_update_name>
+        <sys_updated_by>durizel@hilti.com</sys_updated_by>
+        <sys_updated_on>2021-09-27 14:38:41</sys_updated_on>
+    </oauth_entity_profile_scope>
+</record_update>
