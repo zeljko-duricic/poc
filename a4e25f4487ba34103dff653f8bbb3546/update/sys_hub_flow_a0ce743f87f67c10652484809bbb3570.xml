@@ -1,0 +1,2218 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_hub_flow">
+    <sys_hub_flow action="INSERT_OR_UPDATE">
+        <access>public</access>
+        <acls/>
+        <active>true</active>
+        <annotation/>
+        <callable_by_client_api>false</callable_by_client_api>
+        <category/>
+        <compiler_build>glide-orlando-12-11-2019__patch5-06-17-2020</compiler_build>
+        <copied_from>790d5c7387b67c10652484809bbb357f</copied_from>
+        <copied_from_name>Task Subflow</copied_from_name>
+        <description>&lt;p&gt;Processes SObject Record at the Salesforce Webhook Callbacks Event.&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Inputs&lt;/strong&gt; :&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;strong&gt;Action ID&lt;/strong&gt; - The workflow rule (action) that triggers the message.&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Session ID&lt;/strong&gt; - A session ID to be used by endpoint URL client that is responding to the outbound message. It is used by the receiving code to make calls back to Salesforce.&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Enterprise URL&lt;/strong&gt; - URL to use to make API calls back to Salesforce using the enterprise WSDL.&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Partner URL&lt;/strong&gt; - URL to use to make API calls back to Salesforce using the partner WSDL.&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Notification ID&lt;/strong&gt; - A notification ID is used to track redelivery attempts of notifications you've already processed.&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Records&lt;/strong&gt; - List of fields of salesforce object record which triggers whenever any SObject record is given at the Salesforce Webhook Callbacks Event.&lt;/li&gt;		&lt;/ul&gt;&lt;p&gt;To use this subflow, a corresponding Salesforce Connection and Credential must be created and associated with the Salesforce Connection &amp; Credential Alias. &lt;a href="http://docs.servicenow.com/?context=CSHelp:credentials-connections-alias" target="_blank"&gt;Learn More&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Note&lt;/strong&gt;: Requires a subscription for production use. &lt;a href="https://docs.servicenow.com/?context=CSHelp:IntegrationHub-licensing-information" target="_blank"&gt;Read More&lt;/a&gt;.&lt;/p&gt;</description>
+        <internal_name>task_subflow</internal_name>
+        <label_cache>[{"name":"3a910c1e-e9f5-423e-ac7e-4ff949c24805.__dont_treat_as_error__","label":"6➛Don\u0027t Treat as Error","reference_display":"Don\u0027t Treat as Error","type":"boolean","base_type":"boolean","attributes":{"uiType":"boolean","visible_in_ui":"false","action_error_output":"true","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper"}},{"name":"3a910c1e-e9f5-423e-ac7e-4ff949c24805.__action_status__","label":"6➛Action Status","reference_display":"Action Status","type":"object","base_type":"object","attributes":{"uiType":"object","co_type_name":"FDACTIONSTATUS","action_error_output":"true","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper"}},{"name":"3a910c1e-e9f5-423e-ac7e-4ff949c24805.table_name","label":"6➛Task Table","reference":"x_hirp_poc_task","reference_display":"Task","type":"table_name","base_type":"table_name","attributes":{"element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper"}},{"name":"3a910c1e-e9f5-423e-ac7e-4ff949c24805.record","label":"6➛Task Record","reference":"x_hirp_poc_task","reference_display":"Task","type":"reference","base_type":"reference","attributes":{"element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper"}},{"name":"flow_variable.sn_task_id","label":"Flow Variables➛SN_Task_Id","type":"string","base_type":"string","attributes":{"sourceUiUniqueId":"","sourceType":"","sourceId":"","uiUniqueId":"1836a1e2-7016-4704-9f70-531086df5fd8"}},{"name":"cfab1c5a-c12c-4201-82df-b214651fd820.__dont_treat_as_error__","label":"5➛Don\u0027t Treat as Error","reference_display":"Don\u0027t Treat as Error","type":"boolean","base_type":"boolean","attributes":{"uiType":"boolean","visible_in_ui":"false","action_error_output":"true","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper"}},{"name":"cfab1c5a-c12c-4201-82df-b214651fd820.__action_status__","label":"5➛Action Status","reference_display":"Action Status","type":"object","base_type":"object","attributes":{"uiType":"object","co_type_name":"FDACTIONSTATUS","action_error_output":"true","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper"}},{"name":"cfab1c5a-c12c-4201-82df-b214651fd820.error_message","label":"5➛Error Message","reference_display":"Error Message","type":"string","base_type":"string","attributes":{"uiType":"string","uiTypeLabel":"String","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","pwd2droppable":"true","uiUniqueId":"87687532-9e3d-4497-a88e-90f45bfb9adb"}},{"name":"cfab1c5a-c12c-4201-82df-b214651fd820.status","label":"5➛status","reference_display":"status","type":"choice","base_type":"choice","attributes":{"uiType":"choice","uiTypeLabel":"Choice","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","uiUniqueId":"5e478657-3a84-4a60-a92b-d3e80005ad34"}},{"name":"cfab1c5a-c12c-4201-82df-b214651fd820.Table","label":"5➛Task Table","reference":"x_hirp_poc_task","reference_display":"Task","type":"table_name","base_type":"table_name","attributes":{"uiType":"table_name","uiTypeLabel":"Table Name","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","uiUniqueId":"41be45b6-bd50-47fe-82e7-22f7a2b3ca0e"}},{"name":"cfab1c5a-c12c-4201-82df-b214651fd820.Record","label":"5➛Task Record","reference":"x_hirp_poc_task","reference_display":"Task","type":"reference","base_type":"reference","attributes":{"element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper"}},{"name":"8b106946-0609-43ea-bae8-87b2b8a2a494.__dont_treat_as_error__","label":"3➛Don\u0027t Treat as Error","reference_display":"Don\u0027t Treat as Error","type":"boolean","base_type":"boolean","attributes":{"uiType":"boolean","visible_in_ui":"false","action_error_output":"true","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper"}},{"name":"8b106946-0609-43ea-bae8-87b2b8a2a494.__action_status__","label":"3➛Action Status","reference_display":"Action Status","type":"object","base_type":"object","attributes":{"uiType":"object","co_type_name":"FDACTIONSTATUS","action_error_output":"true","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper"}},{"name":"677fea9d-52a7-48df-bd8c-032cb3d0ce5f.__dont_treat_as_error__","label":"1➛Don\u0027t Treat as Error","reference_display":"Don\u0027t Treat as Error","type":"boolean","base_type":"boolean","attributes":{"uiType":"boolean","visible_in_ui":"false","action_error_output":"true","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper"}},{"name":"677fea9d-52a7-48df-bd8c-032cb3d0ce5f.__action_status__","label":"1➛Action Status","reference_display":"Action Status","type":"object","base_type":"object","attributes":{"uiType":"object","co_type_name":"FDACTIONSTATUS","action_error_output":"true","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper"}},{"name":"subflow.notification_id","label":"Input➛Notification ID","reference":"","reference_display":"","type":"string","base_type":"string","column_name":"","attributes":{"uiType":"string","uiTypeLabel":"String","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","uiUniqueId":"7d55d6d1-2b76-4723-8dae-0403de2cb1fb","sourceUiUniqueId":"","sourceType":"","sourceId":""}},{"name":"subflow.partner_url","label":"Input➛Partner URL","reference":"","reference_display":"","type":"url","base_type":"url","column_name":"","attributes":{"uiType":"url","uiTypeLabel":"URL","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","uiUniqueId":"1e582457-d6e5-4882-b2bb-c7308e71d025","sourceUiUniqueId":"","sourceType":"","sourceId":""}},{"name":"subflow.enterprise_url","label":"Input➛Enterprise URL","reference":"","reference_display":"","type":"url","base_type":"url","column_name":"","attributes":{"uiType":"url","uiTypeLabel":"URL","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","uiUniqueId":"fd4558af-fea8-4595-93f9-82765b77a5b1","sourceUiUniqueId":"","sourceType":"","sourceId":""}},{"name":"subflow.session_id","label":"Input➛Session ID","reference":"","reference_display":"","type":"string","base_type":"string","column_name":"","attributes":{"uiType":"string","uiTypeLabel":"String","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","uiUniqueId":"2407350c-54e0-43ab-8940-ac3dc8e8e4b5","sourceUiUniqueId":"","sourceType":"","sourceId":""}},{"name":"subflow.action_id","label":"Input➛Action ID","reference":"","reference_display":"","type":"string","base_type":"string","column_name":"","attributes":{"uiType":"string","uiTypeLabel":"String","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","uiUniqueId":"19489009-19b1-4082-b691-66e218a478fd","sourceUiUniqueId":"","sourceType":"","sourceId":""}},{"name":"subflow.records","label":"Input➛Records","reference":"","reference_display":"","type":"json","base_type":"json","column_name":"","attributes":{"uiType":"json","uiTypeLabel":"JSON","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","uiUniqueId":"ea1997e4-c4e4-418d-8903-e7ce25d801ad","sourceUiUniqueId":"","sourceType":"","sourceId":""}},{"name":"81830cae-18d4-4583-aed0-5b8f9ef04173.errormessage","label":"2➛Error Message","reference_display":"Error Message","type":"string","base_type":"string","attributes":{"uiTypeLabel":"String","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","pwd2droppable":"true","uiType":"string","uiUniqueId":"d369ce8d-0ae0-4902-8de2-173110ac60ab"}},{"name":"81830cae-18d4-4583-aed0-5b8f9ef04173.status","label":"2➛Status","reference_display":"Status","type":"choice","base_type":"choice","attributes":{"uiTypeLabel":"Choice","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","uiType":"choice","uiUniqueId":"d82a5d1c-a59c-4bd9-a9eb-8403e1cf8ce9"}},{"name":"81830cae-18d4-4583-aed0-5b8f9ef04173.recorddetails","label":"2➛Record Details","reference_display":"Record Details","type":"dynamic_object","base_type":"dynamic_object","attributes":{"element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","dynamic":"true","uiUniqueId":"4a2dd908-a6dc-495e-8bde-e6f27f5afad5"}},{"name":"283e7eaf-50cb-45d7-b886-efe81238857f.errormessage","label":"2➛Error Message","reference_display":"Error Message","type":"string","base_type":"string","attributes":{"uiTypeLabel":"String","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","pwd2droppable":"true","uiType":"string","uiUniqueId":"d369ce8d-0ae0-4902-8de2-173110ac60ab"}},{"name":"283e7eaf-50cb-45d7-b886-efe81238857f.status","label":"2➛Status","reference_display":"Status","type":"choice","base_type":"choice","attributes":{"uiTypeLabel":"Choice","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","uiType":"choice","uiUniqueId":"d82a5d1c-a59c-4bd9-a9eb-8403e1cf8ce9"}},{"name":"283e7eaf-50cb-45d7-b886-efe81238857f.recorddetails","label":"2➛Record Details","reference_display":"Record Details","type":"dynamic_object","base_type":"dynamic_object","attributes":{"element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","dynamic":"true","uiUniqueId":"4a2dd908-a6dc-495e-8bde-e6f27f5afad5"}},{"name":"37ba414d-a22c-4c96-9e57-3fcff8d9b239.errormessage","label":"1➛Error Message","reference_display":"Error Message","type":"string","base_type":"string","attributes":{"uiType":"string","uiTypeLabel":"String","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","pwd2droppable":"true","uiUniqueId":"4b6dbda5-3907-4a88-aae8-3c42283f6ec2"}},{"name":"37ba414d-a22c-4c96-9e57-3fcff8d9b239.status","label":"1➛Status","reference_display":"Status","type":"choice","base_type":"choice","attributes":{"uiType":"choice","uiTypeLabel":"Choice","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","uiUniqueId":"5ac92bd7-928c-4d9b-a675-66891f2357b6"}},{"name":"37ba414d-a22c-4c96-9e57-3fcff8d9b239.records","label":"1➛Records","reference_display":"Records","type":"array.object","base_type":"array.object","attributes":{"child_type":"object","child_type_label":"Object","child_name":"records.Records_child0","child_label":"Records_child0"}},{"name":"76407f5d-4b74-424e-9fd8-544d0a5c2386.errormessage","label":"1➛Error Message","reference_display":"Error Message","type":"string","base_type":"string","attributes":{"uiTypeLabel":"String","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","pwd2droppable":"true","uiType":"string","uiUniqueId":"d369ce8d-0ae0-4902-8de2-173110ac60ab"}},{"name":"76407f5d-4b74-424e-9fd8-544d0a5c2386.status","label":"1➛Status","reference_display":"Status","type":"choice","base_type":"choice","attributes":{"uiTypeLabel":"Choice","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","uiType":"choice","uiUniqueId":"d82a5d1c-a59c-4bd9-a9eb-8403e1cf8ce9"}},{"name":"76407f5d-4b74-424e-9fd8-544d0a5c2386.recorddetails","label":"1➛Record Details","reference_display":"Record Details","type":"dynamic_object","base_type":"dynamic_object","attributes":{"element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","dynamic":"true","uiUniqueId":"83cceab9-28c3-4d5f-bf29-ef2f4fa28abc"}},{"name":"fd81f22d-294b-414b-a1a9-150d0e4b90c3.recorddetails.AccountId","label":"1➛Record Details➛Account ID","type":"string","base_type":"string"},{"name":"fd81f22d-294b-414b-a1a9-150d0e4b90c3.errormessage","label":"1➛Error Message","type":"string","base_type":"string","attributes":{"uiTypeLabel":"String","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","pwd2droppable":"true","uiType":"string","uiUniqueId":"d369ce8d-0ae0-4902-8de2-173110ac60ab"}},{"name":"fd81f22d-294b-414b-a1a9-150d0e4b90c3.status","label":"1➛Status","type":"choice","base_type":"choice","attributes":{"uiTypeLabel":"Choice","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","uiType":"choice","uiUniqueId":"d82a5d1c-a59c-4bd9-a9eb-8403e1cf8ce9"}},{"name":"fd81f22d-294b-414b-a1a9-150d0e4b90c3.recorddetails","label":"1➛Record Details","reference_display":"Record Details","type":"dynamic_object","base_type":"dynamic_object","attributes":{"element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","dynamic":"true","uiUniqueId":"83cceab9-28c3-4d5f-bf29-ef2f4fa28abc"}},{"name":"1a494875-69df-4193-ab71-bfd66089f993.record_details","label":"1➛Record Details","reference_display":"Record Details","type":"object","base_type":"object","attributes":{"dynamic":"true","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","uiUniqueId":"83cceab9-28c3-4d5f-bf29-ef2f4fa28abc"}},{"name":"1a494875-69df-4193-ab71-bfd66089f993.status","label":"1➛Status","reference_display":"Status","type":"choice","base_type":"choice","attributes":{"uiType":"choice","uiTypeLabel":"Choice","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","uiUniqueId":"d82a5d1c-a59c-4bd9-a9eb-8403e1cf8ce9"}},{"name":"1a494875-69df-4193-ab71-bfd66089f993.error_message","label":"1➛Error Message","reference_display":"Error Message","type":"string","base_type":"string","attributes":{"uiType":"string","uiTypeLabel":"String","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","pwd2droppable":"true","uiUniqueId":"d369ce8d-0ae0-4902-8de2-173110ac60ab"}},{"name":"1a494875-69df-4193-ab71-bfd66089f993.record_details.AccountId","label":"1➛Record Details➛Account ID","type":"string","base_type":"string"},{"name":"f2f2d324-e16c-46c1-b4f8-beb7827d3b6f.order_details","label":"2.1.2➛Order Details","reference_display":"Order Details","type":"string","base_type":"string","attributes":{"uiType":"string","uiTypeLabel":"String","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","pwd2droppable":"true","uiUniqueId":"1003675f-1ebd-4b68-acda-c2cdf58f2b72"}},{"name":"f2f2d324-e16c-46c1-b4f8-beb7827d3b6f.status","label":"2.1.2➛Status","reference_display":"Status","type":"choice","base_type":"choice","attributes":{"uiType":"choice","uiTypeLabel":"Choice","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","uiUniqueId":"bd72c7cf-ac30-4008-b554-907c2e063885"}},{"name":"f2f2d324-e16c-46c1-b4f8-beb7827d3b6f.error_message","label":"2.1.2➛Error Message","reference_display":"Error Message","type":"string","base_type":"string","attributes":{"uiType":"string","uiTypeLabel":"String","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","pwd2droppable":"true","uiUniqueId":"5fb14679-2e69-42f9-9572-82a5038a5e58"}},{"name":"1a494875-69df-4193-ab71-bfd66089f993.recorddetails","label":"1➛Record Details","reference_display":"Record Details","type":"object","base_type":"object","attributes":{"dynamic":"true","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","uiUniqueId":"83cceab9-28c3-4d5f-bf29-ef2f4fa28abc"}},{"name":"1a494875-69df-4193-ab71-bfd66089f993.errormessage","label":"1➛Error Message","reference_display":"Error Message","type":"string","base_type":"string","attributes":{"uiType":"string","uiTypeLabel":"String","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","pwd2droppable":"true","uiUniqueId":"d369ce8d-0ae0-4902-8de2-173110ac60ab"}},{"name":"677fea9d-52a7-48df-bd8c-032cb3d0ce5f.records","label":"1➛Records","reference_display":"Records","type":"array.object","base_type":"array.object","attributes":{"uiTypeLabel":"Array.Object","co_type_name":"FD9cc4bc5da0cbd89065a5ce304e1b8bd1","child_label":"Record","child_type_label":"Object","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","uiType":"array.object","child_type":"object","child_name":"record","child_uiUniqueId":"67cf6476-9db4-4cca-8829-71c27b60c9ba","uiUniqueId":"7797763a-11dd-414c-9a77-b7ba763fec91"}},{"name":"677fea9d-52a7-48df-bd8c-032cb3d0ce5f.status","label":"1➛Status","reference_display":"Status","type":"choice","base_type":"choice","attributes":{"uiType":"choice","uiTypeLabel":"Choice","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","uiUniqueId":"6633dc7c-49bf-4bc2-8cc7-48b3efec287b"}},{"name":"677fea9d-52a7-48df-bd8c-032cb3d0ce5f.error_message","label":"1➛Error Message","reference_display":"Error Message","type":"string","base_type":"string","attributes":{"uiType":"string","uiTypeLabel":"String","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","pwd2droppable":"true","uiUniqueId":"6fe7339b-b36d-4e88-8fd9-622540579129"}},{"name":"306dc0b2-73de-4cd0-bcbe-1dc80a593760.item","label":"2➛Record","reference_display":"Record","type":"object","base_type":"object","attributes":{"pills_draggable_inside_block":"true","pills_draggable_outside_block":"false"}}]</label_cache>
+        <master_snapshot>811181b787bafc103dff653f8bbb351a</master_snapshot>
+        <name>PoC Task Subflow</name>
+        <natlang/>
+        <outputs/>
+        <remote_trigger_id/>
+        <run_as>system</run_as>
+        <run_with_roles/>
+        <sc_callable>false</sc_callable>
+        <show_draft_actions>false</show_draft_actions>
+        <show_triggered_flows>false</show_triggered_flows>
+        <status>published</status>
+        <sys_class_name>sys_hub_flow</sys_class_name>
+        <sys_created_by>durizel@hilti.com</sys_created_by>
+        <sys_created_on>2021-10-01 12:36:00</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>a0ce743f87f67c10652484809bbb3570</sys_id>
+        <sys_mod_count>16</sys_mod_count>
+        <sys_name>PoC Task Subflow</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="PoC" source="x_hirp_poc">a4e25f4487ba34103dff653f8bbb3546</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="PoC">a4e25f4487ba34103dff653f8bbb3546</sys_scope>
+        <sys_update_name>sys_hub_flow_a0ce743f87f67c10652484809bbb3570</sys_update_name>
+        <sys_updated_by>durizel@hilti.com</sys_updated_by>
+        <sys_updated_on>2021-10-01 15:50:10</sys_updated_on>
+        <type>subflow</type>
+    </sys_hub_flow>
+    <sys_translated_text action="delete_multiple" query="documentkey=a0ce743f87f67c10652484809bbb3570"/>
+    <sys_variable_value action="delete_multiple" query="document_key=a0ce743f87f67c10652484809bbb3570"/>
+    <sys_flow_cat_variable_model action="delete_multiple" query="id=a0ce743f87f67c10652484809bbb3570^sys_idNOT IN28ce743f87f67c10652484809bbb3571"/>
+    <sys_flow_cat_variable_model action="INSERT_OR_UPDATE">
+        <id>a0ce743f87f67c10652484809bbb3570</id>
+        <name>Task Subflow</name>
+        <sys_created_by>durizel@hilti.com</sys_created_by>
+        <sys_created_on>2021-10-01 12:36:00</sys_created_on>
+        <sys_id>28ce743f87f67c10652484809bbb3571</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_scope/>
+        <sys_updated_by>durizel@hilti.com</sys_updated_by>
+        <sys_updated_on>2021-10-01 12:36:00</sys_updated_on>
+    </sys_flow_cat_variable_model>
+    <sys_hub_flow_input action="delete_multiple" query="model=a0ce743f87f67c10652484809bbb3570^sys_idNOT IN3cce743f87f67c10652484809bbb35b7,7cce743f87f67c10652484809bbb35b1,b0ce743f87f67c10652484809bbb35a5,b8ce743f87f67c10652484809bbb35c3,bcce743f87f67c10652484809bbb35ab,f8ce743f87f67c10652484809bbb35bd"/>
+    <sys_hub_flow_input action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <array>false</array>
+        <array_denormalized>false</array_denormalized>
+        <attributes>element_mapping_provider=com.glide.flow_design.action.data.FlowDesignVariableMapper,uiType=url,uiTypeLabel=URL,uiUniqueId=1e582457-d6e5-4882-b2bb-c7308e71d025</attributes>
+        <audit>false</audit>
+        <calculation><![CDATA[(function calculatedFieldValue(current) {
+
+	// Add your code here
+	return '';  // return the calculated value
+
+})(current);]]></calculation>
+        <choice/>
+        <choice_field/>
+        <choice_table/>
+        <column_label/>
+        <comments/>
+        <create_roles/>
+        <default_value/>
+        <defaultsort/>
+        <delete_roles/>
+        <dependent/>
+        <dependent_on_field/>
+        <display>false</display>
+        <dynamic_creation>false</dynamic_creation>
+        <dynamic_creation_script/>
+        <dynamic_default_value/>
+        <dynamic_ref_qual/>
+        <element>partner_url</element>
+        <element_reference>false</element_reference>
+        <foreign_database/>
+        <function_definition/>
+        <function_field>false</function_field>
+        <help/>
+        <hint/>
+        <internal_type display_value="URL">url</internal_type>
+        <label>Partner URL</label>
+        <mandatory>true</mandatory>
+        <max_length>1024</max_length>
+        <model display_value="PoC Task Subflow">a0ce743f87f67c10652484809bbb3570</model>
+        <model_id>a0ce743f87f67c10652484809bbb3570</model_id>
+        <model_table>sys_hub_flow</model_table>
+        <name>var__m_sys_hub_flow_input_a0ce743f87f67c10652484809bbb3570</name>
+        <next_element/>
+        <order>4</order>
+        <primary>false</primary>
+        <read_only>false</read_only>
+        <read_roles/>
+        <reference/>
+        <reference_cascade_rule/>
+        <reference_floats>false</reference_floats>
+        <reference_key/>
+        <reference_qual/>
+        <reference_qual_condition/>
+        <reference_type/>
+        <sizeclass/>
+        <spell_check>false</spell_check>
+        <staged>false</staged>
+        <sys_class_name>sys_hub_flow_input</sys_class_name>
+        <sys_created_by>durizel@hilti.com</sys_created_by>
+        <sys_created_on>2021-10-01 12:36:00</sys_created_on>
+        <sys_id>3cce743f87f67c10652484809bbb35b7</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package/>
+        <sys_policy/>
+        <sys_scope display_value="PoC">a4e25f4487ba34103dff653f8bbb3546</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>durizel@hilti.com</sys_updated_by>
+        <sys_updated_on>2021-10-01 12:36:00</sys_updated_on>
+        <table_reference>false</table_reference>
+        <text_index>false</text_index>
+        <unique>false</unique>
+        <use_dependent_field>false</use_dependent_field>
+        <use_dynamic_default>false</use_dynamic_default>
+        <use_reference_qualifier>simple</use_reference_qualifier>
+        <virtual>false</virtual>
+        <widget/>
+        <write_roles/>
+        <xml_view>false</xml_view>
+    </sys_hub_flow_input>
+    <sys_hub_flow_input action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <array>false</array>
+        <array_denormalized>false</array_denormalized>
+        <attributes>element_mapping_provider=com.glide.flow_design.action.data.FlowDesignVariableMapper,uiType=url,uiTypeLabel=URL,uiUniqueId=fd4558af-fea8-4595-93f9-82765b77a5b1</attributes>
+        <audit>false</audit>
+        <calculation><![CDATA[(function calculatedFieldValue(current) {
+
+	// Add your code here
+	return '';  // return the calculated value
+
+})(current);]]></calculation>
+        <choice/>
+        <choice_field/>
+        <choice_table/>
+        <column_label/>
+        <comments/>
+        <create_roles/>
+        <default_value/>
+        <defaultsort/>
+        <delete_roles/>
+        <dependent/>
+        <dependent_on_field/>
+        <display>false</display>
+        <dynamic_creation>false</dynamic_creation>
+        <dynamic_creation_script/>
+        <dynamic_default_value/>
+        <dynamic_ref_qual/>
+        <element>enterprise_url</element>
+        <element_reference>false</element_reference>
+        <foreign_database/>
+        <function_definition/>
+        <function_field>false</function_field>
+        <help/>
+        <hint/>
+        <internal_type display_value="URL">url</internal_type>
+        <label>Enterprise URL</label>
+        <mandatory>true</mandatory>
+        <max_length>1024</max_length>
+        <model display_value="PoC Task Subflow">a0ce743f87f67c10652484809bbb3570</model>
+        <model_id>a0ce743f87f67c10652484809bbb3570</model_id>
+        <model_table>sys_hub_flow</model_table>
+        <name>var__m_sys_hub_flow_input_a0ce743f87f67c10652484809bbb3570</name>
+        <next_element/>
+        <order>3</order>
+        <primary>false</primary>
+        <read_only>false</read_only>
+        <read_roles/>
+        <reference/>
+        <reference_cascade_rule/>
+        <reference_floats>false</reference_floats>
+        <reference_key/>
+        <reference_qual/>
+        <reference_qual_condition/>
+        <reference_type/>
+        <sizeclass/>
+        <spell_check>false</spell_check>
+        <staged>false</staged>
+        <sys_class_name>sys_hub_flow_input</sys_class_name>
+        <sys_created_by>durizel@hilti.com</sys_created_by>
+        <sys_created_on>2021-10-01 12:36:00</sys_created_on>
+        <sys_id>7cce743f87f67c10652484809bbb35b1</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package/>
+        <sys_policy/>
+        <sys_scope display_value="PoC">a4e25f4487ba34103dff653f8bbb3546</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>durizel@hilti.com</sys_updated_by>
+        <sys_updated_on>2021-10-01 12:36:00</sys_updated_on>
+        <table_reference>false</table_reference>
+        <text_index>false</text_index>
+        <unique>false</unique>
+        <use_dependent_field>false</use_dependent_field>
+        <use_dynamic_default>false</use_dynamic_default>
+        <use_reference_qualifier>simple</use_reference_qualifier>
+        <virtual>false</virtual>
+        <widget/>
+        <write_roles/>
+        <xml_view>false</xml_view>
+    </sys_hub_flow_input>
+    <sys_hub_flow_input action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <array>false</array>
+        <array_denormalized>false</array_denormalized>
+        <attributes>element_mapping_provider=com.glide.flow_design.action.data.FlowDesignVariableMapper,uiType=string,uiTypeLabel=String,uiUniqueId=19489009-19b1-4082-b691-66e218a478fd</attributes>
+        <audit>false</audit>
+        <calculation><![CDATA[(function calculatedFieldValue(current) {
+
+	// Add your code here
+	return '';  // return the calculated value
+
+})(current);]]></calculation>
+        <choice/>
+        <choice_field/>
+        <choice_table/>
+        <column_label/>
+        <comments/>
+        <create_roles/>
+        <default_value/>
+        <defaultsort/>
+        <delete_roles/>
+        <dependent/>
+        <dependent_on_field/>
+        <display>false</display>
+        <dynamic_creation>false</dynamic_creation>
+        <dynamic_creation_script/>
+        <dynamic_default_value/>
+        <dynamic_ref_qual/>
+        <element>action_id</element>
+        <element_reference>false</element_reference>
+        <foreign_database/>
+        <function_definition/>
+        <function_field>false</function_field>
+        <help/>
+        <hint/>
+        <internal_type display_value="String">string</internal_type>
+        <label>Action ID</label>
+        <mandatory>true</mandatory>
+        <max_length>8000</max_length>
+        <model display_value="PoC Task Subflow">a0ce743f87f67c10652484809bbb3570</model>
+        <model_id>a0ce743f87f67c10652484809bbb3570</model_id>
+        <model_table>sys_hub_flow</model_table>
+        <name>var__m_sys_hub_flow_input_a0ce743f87f67c10652484809bbb3570</name>
+        <next_element/>
+        <order>1</order>
+        <primary>false</primary>
+        <read_only>false</read_only>
+        <read_roles/>
+        <reference/>
+        <reference_cascade_rule/>
+        <reference_floats>false</reference_floats>
+        <reference_key/>
+        <reference_qual/>
+        <reference_qual_condition/>
+        <reference_type/>
+        <sizeclass/>
+        <spell_check>false</spell_check>
+        <staged>false</staged>
+        <sys_class_name>sys_hub_flow_input</sys_class_name>
+        <sys_created_by>durizel@hilti.com</sys_created_by>
+        <sys_created_on>2021-10-01 12:36:00</sys_created_on>
+        <sys_id>b0ce743f87f67c10652484809bbb35a5</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package/>
+        <sys_policy/>
+        <sys_scope display_value="PoC">a4e25f4487ba34103dff653f8bbb3546</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>durizel@hilti.com</sys_updated_by>
+        <sys_updated_on>2021-10-01 12:36:00</sys_updated_on>
+        <table_reference>false</table_reference>
+        <text_index>false</text_index>
+        <unique>false</unique>
+        <use_dependent_field>false</use_dependent_field>
+        <use_dynamic_default>false</use_dynamic_default>
+        <use_reference_qualifier>simple</use_reference_qualifier>
+        <virtual>false</virtual>
+        <widget/>
+        <write_roles/>
+        <xml_view>false</xml_view>
+    </sys_hub_flow_input>
+    <sys_hub_flow_input action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <array>false</array>
+        <array_denormalized>false</array_denormalized>
+        <attributes>element_mapping_provider=com.glide.flow_design.action.data.FlowDesignVariableMapper,uiType=json,uiTypeLabel=JSON,uiUniqueId=ea1997e4-c4e4-418d-8903-e7ce25d801ad</attributes>
+        <audit>false</audit>
+        <calculation><![CDATA[(function calculatedFieldValue(current) {
+
+	// Add your code here
+	return '';  // return the calculated value
+
+})(current);]]></calculation>
+        <choice/>
+        <choice_field/>
+        <choice_table/>
+        <column_label/>
+        <comments/>
+        <create_roles/>
+        <default_value/>
+        <defaultsort/>
+        <delete_roles/>
+        <dependent/>
+        <dependent_on_field/>
+        <display>false</display>
+        <dynamic_creation>false</dynamic_creation>
+        <dynamic_creation_script/>
+        <dynamic_default_value/>
+        <dynamic_ref_qual/>
+        <element>records</element>
+        <element_reference>false</element_reference>
+        <foreign_database/>
+        <function_definition/>
+        <function_field>false</function_field>
+        <help/>
+        <hint/>
+        <internal_type display_value="JSON">json</internal_type>
+        <label>Records</label>
+        <mandatory>true</mandatory>
+        <max_length>8000</max_length>
+        <model display_value="PoC Task Subflow">a0ce743f87f67c10652484809bbb3570</model>
+        <model_id>a0ce743f87f67c10652484809bbb3570</model_id>
+        <model_table>sys_hub_flow</model_table>
+        <name>var__m_sys_hub_flow_input_a0ce743f87f67c10652484809bbb3570</name>
+        <next_element/>
+        <order>6</order>
+        <primary>false</primary>
+        <read_only>false</read_only>
+        <read_roles/>
+        <reference/>
+        <reference_cascade_rule/>
+        <reference_floats>false</reference_floats>
+        <reference_key/>
+        <reference_qual/>
+        <reference_qual_condition/>
+        <reference_type/>
+        <sizeclass/>
+        <spell_check>false</spell_check>
+        <staged>false</staged>
+        <sys_class_name>sys_hub_flow_input</sys_class_name>
+        <sys_created_by>durizel@hilti.com</sys_created_by>
+        <sys_created_on>2021-10-01 12:36:01</sys_created_on>
+        <sys_id>b8ce743f87f67c10652484809bbb35c3</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package/>
+        <sys_policy/>
+        <sys_scope display_value="PoC">a4e25f4487ba34103dff653f8bbb3546</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>durizel@hilti.com</sys_updated_by>
+        <sys_updated_on>2021-10-01 12:36:01</sys_updated_on>
+        <table_reference>false</table_reference>
+        <text_index>false</text_index>
+        <unique>false</unique>
+        <use_dependent_field>false</use_dependent_field>
+        <use_dynamic_default>false</use_dynamic_default>
+        <use_reference_qualifier>simple</use_reference_qualifier>
+        <virtual>false</virtual>
+        <widget/>
+        <write_roles/>
+        <xml_view>false</xml_view>
+    </sys_hub_flow_input>
+    <sys_hub_flow_input action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <array>false</array>
+        <array_denormalized>false</array_denormalized>
+        <attributes>element_mapping_provider=com.glide.flow_design.action.data.FlowDesignVariableMapper,uiType=string,uiTypeLabel=String,uiUniqueId=2407350c-54e0-43ab-8940-ac3dc8e8e4b5</attributes>
+        <audit>false</audit>
+        <calculation><![CDATA[(function calculatedFieldValue(current) {
+
+	// Add your code here
+	return '';  // return the calculated value
+
+})(current);]]></calculation>
+        <choice/>
+        <choice_field/>
+        <choice_table/>
+        <column_label/>
+        <comments/>
+        <create_roles/>
+        <default_value/>
+        <defaultsort/>
+        <delete_roles/>
+        <dependent/>
+        <dependent_on_field/>
+        <display>false</display>
+        <dynamic_creation>false</dynamic_creation>
+        <dynamic_creation_script/>
+        <dynamic_default_value/>
+        <dynamic_ref_qual/>
+        <element>session_id</element>
+        <element_reference>false</element_reference>
+        <foreign_database/>
+        <function_definition/>
+        <function_field>false</function_field>
+        <help/>
+        <hint/>
+        <internal_type display_value="String">string</internal_type>
+        <label>Session ID</label>
+        <mandatory>false</mandatory>
+        <max_length>8000</max_length>
+        <model display_value="PoC Task Subflow">a0ce743f87f67c10652484809bbb3570</model>
+        <model_id>a0ce743f87f67c10652484809bbb3570</model_id>
+        <model_table>sys_hub_flow</model_table>
+        <name>var__m_sys_hub_flow_input_a0ce743f87f67c10652484809bbb3570</name>
+        <next_element/>
+        <order>2</order>
+        <primary>false</primary>
+        <read_only>false</read_only>
+        <read_roles/>
+        <reference/>
+        <reference_cascade_rule/>
+        <reference_floats>false</reference_floats>
+        <reference_key/>
+        <reference_qual/>
+        <reference_qual_condition/>
+        <reference_type/>
+        <sizeclass/>
+        <spell_check>false</spell_check>
+        <staged>false</staged>
+        <sys_class_name>sys_hub_flow_input</sys_class_name>
+        <sys_created_by>durizel@hilti.com</sys_created_by>
+        <sys_created_on>2021-10-01 12:36:00</sys_created_on>
+        <sys_id>bcce743f87f67c10652484809bbb35ab</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package/>
+        <sys_policy/>
+        <sys_scope display_value="PoC">a4e25f4487ba34103dff653f8bbb3546</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>durizel@hilti.com</sys_updated_by>
+        <sys_updated_on>2021-10-01 12:36:00</sys_updated_on>
+        <table_reference>false</table_reference>
+        <text_index>false</text_index>
+        <unique>false</unique>
+        <use_dependent_field>false</use_dependent_field>
+        <use_dynamic_default>false</use_dynamic_default>
+        <use_reference_qualifier>simple</use_reference_qualifier>
+        <virtual>false</virtual>
+        <widget/>
+        <write_roles/>
+        <xml_view>false</xml_view>
+    </sys_hub_flow_input>
+    <sys_hub_flow_input action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <array>false</array>
+        <array_denormalized>false</array_denormalized>
+        <attributes>element_mapping_provider=com.glide.flow_design.action.data.FlowDesignVariableMapper,uiType=string,uiTypeLabel=String,uiUniqueId=7d55d6d1-2b76-4723-8dae-0403de2cb1fb</attributes>
+        <audit>false</audit>
+        <calculation><![CDATA[(function calculatedFieldValue(current) {
+
+	// Add your code here
+	return '';  // return the calculated value
+
+})(current);]]></calculation>
+        <choice/>
+        <choice_field/>
+        <choice_table/>
+        <column_label/>
+        <comments/>
+        <create_roles/>
+        <default_value/>
+        <defaultsort/>
+        <delete_roles/>
+        <dependent/>
+        <dependent_on_field/>
+        <display>false</display>
+        <dynamic_creation>false</dynamic_creation>
+        <dynamic_creation_script/>
+        <dynamic_default_value/>
+        <dynamic_ref_qual/>
+        <element>notification_id</element>
+        <element_reference>false</element_reference>
+        <foreign_database/>
+        <function_definition/>
+        <function_field>false</function_field>
+        <help/>
+        <hint/>
+        <internal_type display_value="String">string</internal_type>
+        <label>Notification ID</label>
+        <mandatory>true</mandatory>
+        <max_length>8000</max_length>
+        <model display_value="PoC Task Subflow">a0ce743f87f67c10652484809bbb3570</model>
+        <model_id>a0ce743f87f67c10652484809bbb3570</model_id>
+        <model_table>sys_hub_flow</model_table>
+        <name>var__m_sys_hub_flow_input_a0ce743f87f67c10652484809bbb3570</name>
+        <next_element/>
+        <order>5</order>
+        <primary>false</primary>
+        <read_only>false</read_only>
+        <read_roles/>
+        <reference/>
+        <reference_cascade_rule/>
+        <reference_floats>false</reference_floats>
+        <reference_key/>
+        <reference_qual/>
+        <reference_qual_condition/>
+        <reference_type/>
+        <sizeclass/>
+        <spell_check>false</spell_check>
+        <staged>false</staged>
+        <sys_class_name>sys_hub_flow_input</sys_class_name>
+        <sys_created_by>durizel@hilti.com</sys_created_by>
+        <sys_created_on>2021-10-01 12:36:00</sys_created_on>
+        <sys_id>f8ce743f87f67c10652484809bbb35bd</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package/>
+        <sys_policy/>
+        <sys_scope display_value="PoC">a4e25f4487ba34103dff653f8bbb3546</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>durizel@hilti.com</sys_updated_by>
+        <sys_updated_on>2021-10-01 12:36:00</sys_updated_on>
+        <table_reference>false</table_reference>
+        <text_index>false</text_index>
+        <unique>false</unique>
+        <use_dependent_field>false</use_dependent_field>
+        <use_dynamic_default>false</use_dynamic_default>
+        <use_reference_qualifier>simple</use_reference_qualifier>
+        <virtual>false</virtual>
+        <widget/>
+        <write_roles/>
+        <xml_view>false</xml_view>
+    </sys_hub_flow_input>
+    <sys_hub_action_instance action="delete_multiple" query="flow=a0ce743f87f67c10652484809bbb3570^sys_idNOT IN51ceb43f87f67c10652484809bbb3506,89ce743f87f67c10652484809bbb35e6,89ce743f87f67c10652484809bbb35fe,cdce743f87f67c10652484809bbb35ec"/>
+    <sys_hub_action_instance action="INSERT_OR_UPDATE">
+        <action_inputs/>
+        <action_inputs/>
+        <action_type display_value="Update Record">baf174c8c3c232002841b63b12d3aee4</action_type>
+        <action_type_parent/>
+        <comment/>
+        <compiled_snapshot>baf174c8c3c232002841b63b12d3aee4</compiled_snapshot>
+        <display_text/>
+        <flow display_value="PoC Task Subflow">a0ce743f87f67c10652484809bbb3570</flow>
+        <order>6</order>
+        <parent_ui_id>306dc0b2-73de-4cd0-bcbe-1dc80a593760</parent_ui_id>
+        <sys_class_name>sys_hub_action_instance</sys_class_name>
+        <sys_created_by>durizel@hilti.com</sys_created_by>
+        <sys_created_on>2021-10-01 12:36:02</sys_created_on>
+        <sys_id>51ceb43f87f67c10652484809bbb3506</sys_id>
+        <sys_mod_count>26</sys_mod_count>
+        <sys_scope display_value="PoC">a4e25f4487ba34103dff653f8bbb3546</sys_scope>
+        <sys_updated_by>durizel@hilti.com</sys_updated_by>
+        <sys_updated_on>2021-10-01 15:50:10</sys_updated_on>
+        <ui_id>3a910c1e-e9f5-423e-ac7e-4ff949c24805</ui_id>
+    </sys_hub_action_instance>
+    <sys_variable_value action="delete_multiple" query="document_key=51ceb43f87f67c10652484809bbb3506"/>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_hub_action_instance</document>
+        <document_key>51ceb43f87f67c10652484809bbb3506</document_key>
+        <order>50</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>durizel@hilti.com</sys_created_by>
+        <sys_created_on>2021-10-01 12:36:02</sys_created_on>
+        <sys_id>51ceb43f87f67c10652484809bbb3508</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>durizel@hilti.com</sys_updated_by>
+        <sys_updated_on>2021-10-01 12:36:02</sys_updated_on>
+        <value>x_hirp_poc_task</value>
+        <variable display_value="Table">1fd27c8cc3c632002841b63b12d3aeb9</variable>
+    </sys_variable_value>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_hub_action_instance</document>
+        <document_key>51ceb43f87f67c10652484809bbb3506</document_key>
+        <order>100</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>durizel@hilti.com</sys_created_by>
+        <sys_created_on>2021-10-01 12:36:02</sys_created_on>
+        <sys_id>9dceb43f87f67c10652484809bbb3507</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_updated_by>durizel@hilti.com</sys_updated_by>
+        <sys_updated_on>2021-10-01 15:50:00</sys_updated_on>
+        <value>status=CLOSED^=</value>
+        <variable display_value="Fields">e7d270ccc3c632002841b63b12d3ae8b</variable>
+    </sys_variable_value>
+    <sys_element_mapping action="delete_multiple" query="id=51ceb43f87f67c10652484809bbb3506"/>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>record</field>
+        <id>51ceb43f87f67c10652484809bbb3506</id>
+        <sys_created_by>durizel@hilti.com</sys_created_by>
+        <sys_created_on>2021-10-01 12:36:02</sys_created_on>
+        <sys_id>59ceb43f87f67c10652484809bbb3507</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>durizel@hilti.com</sys_updated_by>
+        <sys_updated_on>2021-10-01 12:36:02</sys_updated_on>
+        <table>var__m_sys_hub_action_input_baf174c8c3c232002841b63b12d3aee4</table>
+        <value>{{cfab1c5a-c12c-4201-82df-b214651fd820.Record}}</value>
+    </sys_element_mapping>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>table_name</field>
+        <id>51ceb43f87f67c10652484809bbb3506</id>
+        <sys_created_by>durizel@hilti.com</sys_created_by>
+        <sys_created_on>2021-10-01 12:36:02</sys_created_on>
+        <sys_id>95ceb43f87f67c10652484809bbb3507</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>durizel@hilti.com</sys_updated_by>
+        <sys_updated_on>2021-10-01 12:36:02</sys_updated_on>
+        <table>var__m_sys_hub_action_input_baf174c8c3c232002841b63b12d3aee4</table>
+        <value/>
+    </sys_element_mapping>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>values</field>
+        <id>51ceb43f87f67c10652484809bbb3506</id>
+        <sys_created_by>durizel@hilti.com</sys_created_by>
+        <sys_created_on>2021-10-01 12:36:02</sys_created_on>
+        <sys_id>1dceb43f87f67c10652484809bbb3507</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>durizel@hilti.com</sys_updated_by>
+        <sys_updated_on>2021-10-01 12:36:02</sys_updated_on>
+        <table>var__m_sys_hub_action_input_baf174c8c3c232002841b63b12d3aee4</table>
+        <value/>
+    </sys_element_mapping>
+    <sys_hub_action_instance action="INSERT_OR_UPDATE">
+        <action_inputs/>
+        <action_inputs/>
+        <action_type display_value="Subflow Helper Action">489e28591bcbd890c9527669cc4bcb82</action_type>
+        <action_type_parent/>
+        <comment/>
+        <compiled_snapshot>500238d91bcbd890c9527669cc4bcbc7</compiled_snapshot>
+        <display_text/>
+        <flow display_value="PoC Task Subflow">a0ce743f87f67c10652484809bbb3570</flow>
+        <order>1</order>
+        <parent_ui_id/>
+        <sys_class_name>sys_hub_action_instance</sys_class_name>
+        <sys_created_by>durizel@hilti.com</sys_created_by>
+        <sys_created_on>2021-10-01 12:36:01</sys_created_on>
+        <sys_id>89ce743f87f67c10652484809bbb35e6</sys_id>
+        <sys_mod_count>26</sys_mod_count>
+        <sys_scope display_value="PoC">a4e25f4487ba34103dff653f8bbb3546</sys_scope>
+        <sys_updated_by>durizel@hilti.com</sys_updated_by>
+        <sys_updated_on>2021-10-01 15:50:09</sys_updated_on>
+        <ui_id>677fea9d-52a7-48df-bd8c-032cb3d0ce5f</ui_id>
+    </sys_hub_action_instance>
+    <sys_variable_value action="delete_multiple" query="document_key=89ce743f87f67c10652484809bbb35e6"/>
+    <sys_element_mapping action="delete_multiple" query="id=89ce743f87f67c10652484809bbb35e6"/>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>records_input</field>
+        <id>89ce743f87f67c10652484809bbb35e6</id>
+        <sys_created_by>durizel@hilti.com</sys_created_by>
+        <sys_created_on>2021-10-01 12:46:06</sys_created_on>
+        <sys_id>e81141b787bafc103dff653f8bbb359f</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>durizel@hilti.com</sys_updated_by>
+        <sys_updated_on>2021-10-01 12:46:06</sys_updated_on>
+        <table>var__m_sys_hub_action_input_489e28591bcbd890c9527669cc4bcb82</table>
+        <value>{{subflow.records}}</value>
+    </sys_element_mapping>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>records_input</field>
+        <id>89ce743f87f67c10652484809bbb35e6</id>
+        <sys_created_by>durizel@hilti.com</sys_created_by>
+        <sys_created_on>2021-10-01 12:36:01</sys_created_on>
+        <sys_id>cdce743f87f67c10652484809bbb35e7</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>durizel@hilti.com</sys_updated_by>
+        <sys_updated_on>2021-10-01 12:36:01</sys_updated_on>
+        <table>var__m_sys_hub_action_input_500238d91bcbd890c9527669cc4bcbc7</table>
+        <value>{{subflow.records}}</value>
+    </sys_element_mapping>
+    <sys_hub_action_instance action="INSERT_OR_UPDATE">
+        <action_inputs/>
+        <action_inputs/>
+        <action_type display_value="Look Up Record">b93f42810b30030085c083eb37673a63</action_type>
+        <action_type_parent/>
+        <comment/>
+        <compiled_snapshot>b93f42810b30030085c083eb37673a63</compiled_snapshot>
+        <display_text/>
+        <flow display_value="PoC Task Subflow">a0ce743f87f67c10652484809bbb3570</flow>
+        <order>5</order>
+        <parent_ui_id>306dc0b2-73de-4cd0-bcbe-1dc80a593760</parent_ui_id>
+        <sys_class_name>sys_hub_action_instance</sys_class_name>
+        <sys_created_by>durizel@hilti.com</sys_created_by>
+        <sys_created_on>2021-10-01 12:36:02</sys_created_on>
+        <sys_id>89ce743f87f67c10652484809bbb35fe</sys_id>
+        <sys_mod_count>26</sys_mod_count>
+        <sys_scope display_value="PoC">a4e25f4487ba34103dff653f8bbb3546</sys_scope>
+        <sys_updated_by>durizel@hilti.com</sys_updated_by>
+        <sys_updated_on>2021-10-01 15:50:10</sys_updated_on>
+        <ui_id>cfab1c5a-c12c-4201-82df-b214651fd820</ui_id>
+    </sys_hub_action_instance>
+    <sys_variable_value action="delete_multiple" query="document_key=89ce743f87f67c10652484809bbb35fe"/>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_hub_action_instance</document>
+        <document_key>89ce743f87f67c10652484809bbb35fe</document_key>
+        <order>0</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>durizel@hilti.com</sys_created_by>
+        <sys_created_on>2021-10-01 12:36:02</sys_created_on>
+        <sys_id>99ceb43f87f67c10652484809bbb3500</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>durizel@hilti.com</sys_updated_by>
+        <sys_updated_on>2021-10-01 12:36:02</sys_updated_on>
+        <value>x_hirp_poc_task</value>
+        <variable display_value="Table">d909f99587003300663ca1bb36cb0ba4</variable>
+    </sys_variable_value>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_hub_action_instance</document>
+        <document_key>89ce743f87f67c10652484809bbb35fe</document_key>
+        <order>0</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>durizel@hilti.com</sys_created_by>
+        <sys_created_on>2021-10-01 12:46:07</sys_created_on>
+        <sys_id>bc1141b787bafc103dff653f8bbb35ad</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>durizel@hilti.com</sys_updated_by>
+        <sys_updated_on>2021-10-01 12:46:07</sys_updated_on>
+        <value>x_hirp_poc_task</value>
+        <variable display_value="Table">79305e810b30030085c083eb37673a85</variable>
+    </sys_variable_value>
+    <sys_element_mapping action="delete_multiple" query="id=89ce743f87f67c10652484809bbb35fe"/>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>conditions</field>
+        <id>89ce743f87f67c10652484809bbb35fe</id>
+        <sys_created_by>durizel@hilti.com</sys_created_by>
+        <sys_created_on>2021-10-01 12:36:02</sys_created_on>
+        <sys_id>55ceb43f87f67c10652484809bbb3500</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>durizel@hilti.com</sys_updated_by>
+        <sys_updated_on>2021-10-01 12:36:02</sys_updated_on>
+        <table>var__m_sys_hub_action_input_9d09f99587003300663ca1bb36cb0ba3</table>
+        <value>sys_id={{flow_variable.sn_task_id}}</value>
+    </sys_element_mapping>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>conditions</field>
+        <id>89ce743f87f67c10652484809bbb35fe</id>
+        <sys_created_by>durizel@hilti.com</sys_created_by>
+        <sys_created_on>2021-10-01 12:46:07</sys_created_on>
+        <sys_id>781141b787bafc103dff653f8bbb35ad</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>durizel@hilti.com</sys_updated_by>
+        <sys_updated_on>2021-10-01 12:46:07</sys_updated_on>
+        <table>var__m_sys_hub_action_input_b93f42810b30030085c083eb37673a63</table>
+        <value>sys_id={{flow_variable.sn_task_id}}</value>
+    </sys_element_mapping>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>table</field>
+        <id>89ce743f87f67c10652484809bbb35fe</id>
+        <sys_created_by>durizel@hilti.com</sys_created_by>
+        <sys_created_on>2021-10-01 12:36:02</sys_created_on>
+        <sys_id>19ceb43f87f67c10652484809bbb3500</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>durizel@hilti.com</sys_updated_by>
+        <sys_updated_on>2021-10-01 12:36:02</sys_updated_on>
+        <table>var__m_sys_hub_action_input_9d09f99587003300663ca1bb36cb0ba3</table>
+        <value/>
+    </sys_element_mapping>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>table</field>
+        <id>89ce743f87f67c10652484809bbb35fe</id>
+        <sys_created_by>durizel@hilti.com</sys_created_by>
+        <sys_created_on>2021-10-01 12:46:07</sys_created_on>
+        <sys_id>3c1141b787bafc103dff653f8bbb35ad</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>durizel@hilti.com</sys_updated_by>
+        <sys_updated_on>2021-10-01 12:46:07</sys_updated_on>
+        <table>var__m_sys_hub_action_input_b93f42810b30030085c083eb37673a63</table>
+        <value/>
+    </sys_element_mapping>
+    <sys_hub_action_instance action="INSERT_OR_UPDATE">
+        <action_inputs/>
+        <action_type display_value="Log">0e0ae8c2531003003bf1d9109ec587c8</action_type>
+        <action_type_parent/>
+        <comment/>
+        <compiled_snapshot>5bc1bcc6531003003bf1d9109ec587d4</compiled_snapshot>
+        <display_text/>
+        <flow display_value="PoC Task Subflow">a0ce743f87f67c10652484809bbb3570</flow>
+        <order>3</order>
+        <parent_ui_id>306dc0b2-73de-4cd0-bcbe-1dc80a593760</parent_ui_id>
+        <sys_class_name>sys_hub_action_instance</sys_class_name>
+        <sys_created_by>durizel@hilti.com</sys_created_by>
+        <sys_created_on>2021-10-01 12:36:02</sys_created_on>
+        <sys_id>cdce743f87f67c10652484809bbb35ec</sys_id>
+        <sys_mod_count>26</sys_mod_count>
+        <sys_scope display_value="PoC">a4e25f4487ba34103dff653f8bbb3546</sys_scope>
+        <sys_updated_by>durizel@hilti.com</sys_updated_by>
+        <sys_updated_on>2021-10-01 15:50:10</sys_updated_on>
+        <ui_id>8b106946-0609-43ea-bae8-87b2b8a2a494</ui_id>
+    </sys_hub_action_instance>
+    <sys_variable_value action="delete_multiple" query="document_key=cdce743f87f67c10652484809bbb35ec"/>
+    <sys_element_mapping action="delete_multiple" query="table=var__m_sys_hub_action_input_0e0ae8c2531003003bf1d9109ec587c8^id=cdce743f87f67c10652484809bbb35ec"/>
+    <sys_hub_input_scripts action="delete_multiple" query="instance=cdce743f87f67c10652484809bbb35ec^sys_idNOT IN4dce743f87f67c10652484809bbb35ed"/>
+    <sys_hub_input_scripts action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <input_name>log_message</input_name>
+        <instance>cdce743f87f67c10652484809bbb35ec</instance>
+        <referenced_table>sys_hub_action_instance</referenced_table>
+        <script>{"log_message":{"scriptActive":true,"script":"/*\n**Access Flow/Action data using the fd_data object. Script must return a value.\n**example: var shortDesc \u003d fd_data.trigger.current.short_description;\n**return shortDesc;\n*/\nvar recData \u003d fd_data._2__for_each.item.record_data;\nvar parsedResult \u003d JSON.parse(recData);\nvar recId \u003d parsedResult[\"sf:Id\"];\nreturn \"Id of the Record in Incoming Webhook Payload is : \" + recId;"}}</script>
+        <sys_created_by>durizel@hilti.com</sys_created_by>
+        <sys_created_on>2021-10-01 12:36:02</sys_created_on>
+        <sys_id>4dce743f87f67c10652484809bbb35ed</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>durizel@hilti.com</sys_updated_by>
+        <sys_updated_on>2021-10-01 12:36:02</sys_updated_on>
+    </sys_hub_input_scripts>
+    <sys_hub_flow_logic action="delete_multiple" query="flow=a0ce743f87f67c10652484809bbb3570^sys_idNOT IN01ce743f87f67c10652484809bbb35ce,01ce743f87f67c10652484809bbb35d2"/>
+    <sys_hub_flow_logic action="INSERT_OR_UPDATE">
+        <block display_value="">820d5c7387b67c10652484809bbb35b7</block>
+        <comment/>
+        <connected_to/>
+        <decision_table/>
+        <decision_table_inputs/>
+        <display_text/>
+        <extended_inputs/>
+        <flow display_value="PoC Task Subflow">a0ce743f87f67c10652484809bbb3570</flow>
+        <flow_variable/>
+        <flow_variables_assigned/>
+        <inputs/>
+        <inputs/>
+        <logic_definition display_value="For Each">098e1dc5c3e232002841b63b12d3ae33</logic_definition>
+        <order>2</order>
+        <outputs_assigned/>
+        <outputs_to_assign/>
+        <parent_ui_id/>
+        <sys_class_name>sys_hub_flow_logic</sys_class_name>
+        <sys_created_by>durizel@hilti.com</sys_created_by>
+        <sys_created_on>2021-10-01 12:36:01</sys_created_on>
+        <sys_id>01ce743f87f67c10652484809bbb35ce</sys_id>
+        <sys_mod_count>14</sys_mod_count>
+        <sys_scope display_value="PoC">a4e25f4487ba34103dff653f8bbb3546</sys_scope>
+        <sys_updated_by>durizel@hilti.com</sys_updated_by>
+        <sys_updated_on>2021-10-01 15:50:10</sys_updated_on>
+        <ui_id>306dc0b2-73de-4cd0-bcbe-1dc80a593760</ui_id>
+        <workflow_inputs/>
+        <workflow_reference/>
+    </sys_hub_flow_logic>
+    <sys_variable_value action="delete_multiple" query="document_key=01ce743f87f67c10652484809bbb35ce"/>
+    <sys_element_mapping action="delete_multiple" query="table=var__m_sys_hub_flow_variable_a0ce743f87f67c10652484809bbb3570^id=01ce743f87f67c10652484809bbb35ce"/>
+    <sys_element_mapping action="delete_multiple" query="id=01ce743f87f67c10652484809bbb35ce"/>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>items</field>
+        <id>01ce743f87f67c10652484809bbb35ce</id>
+        <sys_created_by>durizel@hilti.com</sys_created_by>
+        <sys_created_on>2021-10-01 12:36:01</sys_created_on>
+        <sys_id>41ce743f87f67c10652484809bbb35d1</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>durizel@hilti.com</sys_updated_by>
+        <sys_updated_on>2021-10-01 12:36:01</sys_updated_on>
+        <table>var__m_sys_hub_flow_logic_input_098e1dc5c3e232002841b63b12d3ae33</table>
+        <value>{{677fea9d-52a7-48df-bd8c-032cb3d0ce5f.records}}</value>
+    </sys_element_mapping>
+    <sys_hub_flow_logic action="INSERT_OR_UPDATE">
+        <block display_value="">a13db4bb87f67c10652484809bbb3531</block>
+        <comment/>
+        <connected_to/>
+        <decision_table/>
+        <decision_table_inputs/>
+        <display_text/>
+        <extended_inputs/>
+        <flow display_value="PoC Task Subflow">a0ce743f87f67c10652484809bbb3570</flow>
+        <flow_variable/>
+        <flow_variables_assigned>sn_task_id</flow_variables_assigned>
+        <inputs/>
+        <logic_definition display_value="Set Flow Variables">4f787d1e0f9b0010ecf0cc52ff767ea0</logic_definition>
+        <order>4</order>
+        <outputs_assigned/>
+        <outputs_to_assign/>
+        <parent_ui_id>306dc0b2-73de-4cd0-bcbe-1dc80a593760</parent_ui_id>
+        <sys_class_name>sys_hub_flow_logic</sys_class_name>
+        <sys_created_by>durizel@hilti.com</sys_created_by>
+        <sys_created_on>2021-10-01 12:36:01</sys_created_on>
+        <sys_id>01ce743f87f67c10652484809bbb35d2</sys_id>
+        <sys_mod_count>14</sys_mod_count>
+        <sys_scope display_value="PoC">a4e25f4487ba34103dff653f8bbb3546</sys_scope>
+        <sys_updated_by>durizel@hilti.com</sys_updated_by>
+        <sys_updated_on>2021-10-01 15:50:10</sys_updated_on>
+        <ui_id>e52ada3f-6ade-4088-aed8-d44ff69aced0</ui_id>
+        <workflow_inputs/>
+        <workflow_reference/>
+    </sys_hub_flow_logic>
+    <sys_variable_value action="delete_multiple" query="document_key=01ce743f87f67c10652484809bbb35d2"/>
+    <sys_element_mapping action="delete_multiple" query="table=var__m_sys_hub_flow_variable_a0ce743f87f67c10652484809bbb3570^id=01ce743f87f67c10652484809bbb35d2"/>
+    <sys_hub_input_scripts action="delete_multiple" query="instance=01ce743f87f67c10652484809bbb35d2^sys_idNOT INcdce743f87f67c10652484809bbb35d2"/>
+    <sys_hub_input_scripts action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <input_name>sn_task_id</input_name>
+        <instance>01ce743f87f67c10652484809bbb35d2</instance>
+        <referenced_table>sys_hub_flow_logic</referenced_table>
+        <script>{"sn_task_id":{"scriptActive":true,"script":"/*\n**Access Flow/Action data using the fd_data object. Script must return a value.\n**example: var shortDesc \u003d fd_data.trigger.current.short_description;\n**return shortDesc;\n*/\nvar recData \u003d fd_data._2__for_each.item.record_data;\nvar parsedResult \u003d JSON.parse(recData);\nvar recId \u003d parsedResult[\"sf:SN_Id__c\"];\nreturn recId;"}}</script>
+        <sys_created_by>durizel@hilti.com</sys_created_by>
+        <sys_created_on>2021-10-01 12:36:01</sys_created_on>
+        <sys_id>cdce743f87f67c10652484809bbb35d2</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_updated_by>durizel@hilti.com</sys_updated_by>
+        <sys_updated_on>2021-10-01 13:32:27</sys_updated_on>
+    </sys_hub_input_scripts>
+    <sys_hub_flow_variable action="delete_multiple" query="model=a0ce743f87f67c10652484809bbb3570^sys_idNOT IN38ce743f87f67c10652484809bbb359d"/>
+    <sys_hub_flow_variable action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <array>false</array>
+        <array_denormalized>false</array_denormalized>
+        <attributes>element_mapping_provider=com.glide.flow_design.action.data.FlowDesignVariableMapper,uiType=string,uiTypeLabel=String,uiUniqueId=1836a1e2-7016-4704-9f70-531086df5fd8</attributes>
+        <audit>false</audit>
+        <calculation><![CDATA[(function calculatedFieldValue(current) {
+
+	// Add your code here
+	return '';  // return the calculated value
+
+})(current);]]></calculation>
+        <choice/>
+        <choice_field/>
+        <choice_table/>
+        <column_label/>
+        <comments/>
+        <create_roles/>
+        <default_value/>
+        <defaultsort/>
+        <delete_roles/>
+        <dependent/>
+        <dependent_on_field/>
+        <display>false</display>
+        <dynamic_creation>false</dynamic_creation>
+        <dynamic_creation_script/>
+        <dynamic_default_value/>
+        <dynamic_ref_qual/>
+        <element>sn_task_id</element>
+        <element_reference>false</element_reference>
+        <foreign_database/>
+        <function_definition/>
+        <function_field>false</function_field>
+        <help/>
+        <hint/>
+        <internal_type display_value="String">string</internal_type>
+        <label>SN_Task_Id</label>
+        <mandatory>false</mandatory>
+        <max_length>8000</max_length>
+        <model display_value="PoC Task Subflow">a0ce743f87f67c10652484809bbb3570</model>
+        <model_id>a0ce743f87f67c10652484809bbb3570</model_id>
+        <model_table>sys_hub_flow</model_table>
+        <name>var__m_sys_hub_flow_variable_a0ce743f87f67c10652484809bbb3570</name>
+        <next_element/>
+        <order>0</order>
+        <primary>false</primary>
+        <read_only>false</read_only>
+        <read_roles/>
+        <reference/>
+        <reference_cascade_rule/>
+        <reference_floats>false</reference_floats>
+        <reference_key/>
+        <reference_qual/>
+        <reference_qual_condition/>
+        <reference_type/>
+        <sizeclass/>
+        <spell_check>false</spell_check>
+        <staged>false</staged>
+        <sys_class_name>sys_hub_flow_variable</sys_class_name>
+        <sys_created_by>durizel@hilti.com</sys_created_by>
+        <sys_created_on>2021-10-01 12:36:00</sys_created_on>
+        <sys_id>38ce743f87f67c10652484809bbb359d</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>SN_Task_Id</sys_name>
+        <sys_package display_value="PoC" source="x_hirp_poc">a4e25f4487ba34103dff653f8bbb3546</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="PoC">a4e25f4487ba34103dff653f8bbb3546</sys_scope>
+        <sys_update_name>sys_hub_flow_variable_38ce743f87f67c10652484809bbb359d</sys_update_name>
+        <sys_updated_by>durizel@hilti.com</sys_updated_by>
+        <sys_updated_on>2021-10-01 12:36:00</sys_updated_on>
+        <table_reference>false</table_reference>
+        <text_index>false</text_index>
+        <unique>false</unique>
+        <use_dependent_field>false</use_dependent_field>
+        <use_dynamic_default>false</use_dynamic_default>
+        <use_reference_qualifier>simple</use_reference_qualifier>
+        <virtual>false</virtual>
+        <widget/>
+        <write_roles/>
+        <xml_view>false</xml_view>
+    </sys_hub_flow_variable>
+    <sys_documentation action="delete_multiple" query="name=var__m_sys_hub_flow_input_a0ce743f87f67c10652484809bbb3570^sys_idNOT IN38ce743f87f67c10652484809bbb35bc,78ce743f87f67c10652484809bbb35b6,b4ce743f87f67c10652484809bbb35c8,b8ce743f87f67c10652484809bbb35b0,f4ce743f87f67c10652484809bbb35c2,f8ce743f87f67c10652484809bbb35aa"/>
+    <sys_documentation action="INSERT_OR_UPDATE">
+        <element>partner_url</element>
+        <help/>
+        <hint/>
+        <label>Partner URL</label>
+        <language>en</language>
+        <name>var__m_sys_hub_flow_input_a0ce743f87f67c10652484809bbb3570</name>
+        <plural/>
+        <sys_class_name>sys_documentation</sys_class_name>
+        <sys_created_by>durizel@hilti.com</sys_created_by>
+        <sys_created_on>2021-10-01 12:36:00</sys_created_on>
+        <sys_id>38ce743f87f67c10652484809bbb35bc</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="PoC" source="x_hirp_poc">a4e25f4487ba34103dff653f8bbb3546</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="PoC">a4e25f4487ba34103dff653f8bbb3546</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>durizel@hilti.com</sys_updated_by>
+        <sys_updated_on>2021-10-01 12:36:00</sys_updated_on>
+        <url/>
+        <url_target/>
+    </sys_documentation>
+    <sys_documentation action="INSERT_OR_UPDATE">
+        <element>enterprise_url</element>
+        <help/>
+        <hint/>
+        <label>Enterprise URL</label>
+        <language>en</language>
+        <name>var__m_sys_hub_flow_input_a0ce743f87f67c10652484809bbb3570</name>
+        <plural/>
+        <sys_class_name>sys_documentation</sys_class_name>
+        <sys_created_by>durizel@hilti.com</sys_created_by>
+        <sys_created_on>2021-10-01 12:36:00</sys_created_on>
+        <sys_id>78ce743f87f67c10652484809bbb35b6</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="PoC" source="x_hirp_poc">a4e25f4487ba34103dff653f8bbb3546</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="PoC">a4e25f4487ba34103dff653f8bbb3546</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>durizel@hilti.com</sys_updated_by>
+        <sys_updated_on>2021-10-01 12:36:00</sys_updated_on>
+        <url/>
+        <url_target/>
+    </sys_documentation>
+    <sys_documentation action="INSERT_OR_UPDATE">
+        <element>records</element>
+        <help/>
+        <hint/>
+        <label>Records</label>
+        <language>en</language>
+        <name>var__m_sys_hub_flow_input_a0ce743f87f67c10652484809bbb3570</name>
+        <plural/>
+        <sys_class_name>sys_documentation</sys_class_name>
+        <sys_created_by>durizel@hilti.com</sys_created_by>
+        <sys_created_on>2021-10-01 12:36:01</sys_created_on>
+        <sys_id>b4ce743f87f67c10652484809bbb35c8</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="PoC" source="x_hirp_poc">a4e25f4487ba34103dff653f8bbb3546</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="PoC">a4e25f4487ba34103dff653f8bbb3546</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>durizel@hilti.com</sys_updated_by>
+        <sys_updated_on>2021-10-01 12:36:01</sys_updated_on>
+        <url/>
+        <url_target/>
+    </sys_documentation>
+    <sys_documentation action="INSERT_OR_UPDATE">
+        <element>session_id</element>
+        <help/>
+        <hint/>
+        <label>Session ID</label>
+        <language>en</language>
+        <name>var__m_sys_hub_flow_input_a0ce743f87f67c10652484809bbb3570</name>
+        <plural/>
+        <sys_class_name>sys_documentation</sys_class_name>
+        <sys_created_by>durizel@hilti.com</sys_created_by>
+        <sys_created_on>2021-10-01 12:36:00</sys_created_on>
+        <sys_id>b8ce743f87f67c10652484809bbb35b0</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="PoC" source="x_hirp_poc">a4e25f4487ba34103dff653f8bbb3546</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="PoC">a4e25f4487ba34103dff653f8bbb3546</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>durizel@hilti.com</sys_updated_by>
+        <sys_updated_on>2021-10-01 12:36:00</sys_updated_on>
+        <url/>
+        <url_target/>
+    </sys_documentation>
+    <sys_documentation action="INSERT_OR_UPDATE">
+        <element>notification_id</element>
+        <help/>
+        <hint/>
+        <label>Notification ID</label>
+        <language>en</language>
+        <name>var__m_sys_hub_flow_input_a0ce743f87f67c10652484809bbb3570</name>
+        <plural/>
+        <sys_class_name>sys_documentation</sys_class_name>
+        <sys_created_by>durizel@hilti.com</sys_created_by>
+        <sys_created_on>2021-10-01 12:36:01</sys_created_on>
+        <sys_id>f4ce743f87f67c10652484809bbb35c2</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="PoC" source="x_hirp_poc">a4e25f4487ba34103dff653f8bbb3546</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="PoC">a4e25f4487ba34103dff653f8bbb3546</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>durizel@hilti.com</sys_updated_by>
+        <sys_updated_on>2021-10-01 12:36:01</sys_updated_on>
+        <url/>
+        <url_target/>
+    </sys_documentation>
+    <sys_documentation action="INSERT_OR_UPDATE">
+        <element>action_id</element>
+        <help/>
+        <hint/>
+        <label>Action ID</label>
+        <language>en</language>
+        <name>var__m_sys_hub_flow_input_a0ce743f87f67c10652484809bbb3570</name>
+        <plural/>
+        <sys_class_name>sys_documentation</sys_class_name>
+        <sys_created_by>durizel@hilti.com</sys_created_by>
+        <sys_created_on>2021-10-01 12:36:00</sys_created_on>
+        <sys_id>f8ce743f87f67c10652484809bbb35aa</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="PoC" source="x_hirp_poc">a4e25f4487ba34103dff653f8bbb3546</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="PoC">a4e25f4487ba34103dff653f8bbb3546</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>durizel@hilti.com</sys_updated_by>
+        <sys_updated_on>2021-10-01 12:36:00</sys_updated_on>
+        <url/>
+        <url_target/>
+    </sys_documentation>
+    <sys_flow_subflow_plan action="delete_multiple" query="plan_id=a0ce743f87f67c10652484809bbb3570^sys_idNOT INb511c1b787bafc103dff653f8bbb352f"/>
+    <sys_flow_subflow_plan action="INSERT_OR_UPDATE">
+        <plan>{"persistor":{"@class":".ChunkingPlanPersistor","table":"sys_flow_subflow_plan","id":"b511c1b787bafc103dff653f8bbb352f","name":"plan","plan_signature":null}}</plan>
+        <plan_id display_value="PoC Task Subflow">a0ce743f87f67c10652484809bbb3570</plan_id>
+        <snapshot>811181b787bafc103dff653f8bbb351a</snapshot>
+        <sys_created_by>durizel@hilti.com</sys_created_by>
+        <sys_created_on>2021-10-01 12:46:11</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>b511c1b787bafc103dff653f8bbb352f</sys_id>
+        <sys_mod_count>4</sys_mod_count>
+        <sys_overrides/>
+        <sys_scope/>
+        <sys_updated_by>durizel@hilti.com</sys_updated_by>
+        <sys_updated_on>2021-10-01 15:50:09</sys_updated_on>
+    </sys_flow_subflow_plan>
+    <sys_hub_flow_snapshot action="INSERT_OR_UPDATE">
+        <access>public</access>
+        <acls/>
+        <active>true</active>
+        <annotation/>
+        <callable_by_client_api>false</callable_by_client_api>
+        <category/>
+        <copied_from/>
+        <copied_from_name/>
+        <description>&lt;p&gt;Processes SObject Record at the Salesforce Webhook Callbacks Event.&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Inputs&lt;/strong&gt; :&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;strong&gt;Action ID&lt;/strong&gt; - The workflow rule (action) that triggers the message.&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Session ID&lt;/strong&gt; - A session ID to be used by endpoint URL client that is responding to the outbound message. It is used by the receiving code to make calls back to Salesforce.&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Enterprise URL&lt;/strong&gt; - URL to use to make API calls back to Salesforce using the enterprise WSDL.&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Partner URL&lt;/strong&gt; - URL to use to make API calls back to Salesforce using the partner WSDL.&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Notification ID&lt;/strong&gt; - A notification ID is used to track redelivery attempts of notifications you've already processed.&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Records&lt;/strong&gt; - List of fields of salesforce object record which triggers whenever any SObject record is given at the Salesforce Webhook Callbacks Event.&lt;/li&gt;		&lt;/ul&gt;&lt;p&gt;To use this subflow, a corresponding Salesforce Connection and Credential must be created and associated with the Salesforce Connection &amp; Credential Alias. &lt;a href="http://docs.servicenow.com/?context=CSHelp:credentials-connections-alias" target="_blank"&gt;Learn More&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Note&lt;/strong&gt;: Requires a subscription for production use. &lt;a href="https://docs.servicenow.com/?context=CSHelp:IntegrationHub-licensing-information" target="_blank"&gt;Read More&lt;/a&gt;.&lt;/p&gt;</description>
+        <internal_name>task_subflow</internal_name>
+        <label_cache>[{"name":"3a910c1e-e9f5-423e-ac7e-4ff949c24805.__dont_treat_as_error__","label":"6➛Don\u0027t Treat as Error","reference_display":"Don\u0027t Treat as Error","type":"boolean","base_type":"boolean","attributes":{"uiType":"boolean","visible_in_ui":"false","action_error_output":"true","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper"}},{"name":"3a910c1e-e9f5-423e-ac7e-4ff949c24805.__action_status__","label":"6➛Action Status","reference_display":"Action Status","type":"object","base_type":"object","attributes":{"uiType":"object","co_type_name":"FDACTIONSTATUS","action_error_output":"true","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper"}},{"name":"3a910c1e-e9f5-423e-ac7e-4ff949c24805.table_name","label":"6➛Task Table","reference":"x_hirp_poc_task","reference_display":"Task","type":"table_name","base_type":"table_name","attributes":{"element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper"}},{"name":"3a910c1e-e9f5-423e-ac7e-4ff949c24805.record","label":"6➛Task Record","reference":"x_hirp_poc_task","reference_display":"Task","type":"reference","base_type":"reference","attributes":{"element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper"}},{"name":"flow_variable.sn_task_id","label":"Flow Variables➛SN_Task_Id","type":"string","base_type":"string","attributes":{"sourceUiUniqueId":"","sourceType":"","sourceId":"","uiUniqueId":"1836a1e2-7016-4704-9f70-531086df5fd8"}},{"name":"cfab1c5a-c12c-4201-82df-b214651fd820.__dont_treat_as_error__","label":"5➛Don\u0027t Treat as Error","reference_display":"Don\u0027t Treat as Error","type":"boolean","base_type":"boolean","attributes":{"uiType":"boolean","visible_in_ui":"false","action_error_output":"true","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper"}},{"name":"cfab1c5a-c12c-4201-82df-b214651fd820.__action_status__","label":"5➛Action Status","reference_display":"Action Status","type":"object","base_type":"object","attributes":{"uiType":"object","co_type_name":"FDACTIONSTATUS","action_error_output":"true","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper"}},{"name":"cfab1c5a-c12c-4201-82df-b214651fd820.error_message","label":"5➛Error Message","reference_display":"Error Message","type":"string","base_type":"string","attributes":{"uiType":"string","uiTypeLabel":"String","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","pwd2droppable":"true","uiUniqueId":"87687532-9e3d-4497-a88e-90f45bfb9adb"}},{"name":"cfab1c5a-c12c-4201-82df-b214651fd820.status","label":"5➛status","reference_display":"status","type":"choice","base_type":"choice","attributes":{"uiType":"choice","uiTypeLabel":"Choice","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","uiUniqueId":"5e478657-3a84-4a60-a92b-d3e80005ad34"}},{"name":"cfab1c5a-c12c-4201-82df-b214651fd820.Table","label":"5➛Task Table","reference":"x_hirp_poc_task","reference_display":"Task","type":"table_name","base_type":"table_name","attributes":{"uiType":"table_name","uiTypeLabel":"Table Name","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","uiUniqueId":"41be45b6-bd50-47fe-82e7-22f7a2b3ca0e"}},{"name":"cfab1c5a-c12c-4201-82df-b214651fd820.Record","label":"5➛Task Record","reference":"x_hirp_poc_task","reference_display":"Task","type":"reference","base_type":"reference","attributes":{"element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper"}},{"name":"8b106946-0609-43ea-bae8-87b2b8a2a494.__dont_treat_as_error__","label":"3➛Don\u0027t Treat as Error","reference_display":"Don\u0027t Treat as Error","type":"boolean","base_type":"boolean","attributes":{"uiType":"boolean","visible_in_ui":"false","action_error_output":"true","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper"}},{"name":"8b106946-0609-43ea-bae8-87b2b8a2a494.__action_status__","label":"3➛Action Status","reference_display":"Action Status","type":"object","base_type":"object","attributes":{"uiType":"object","co_type_name":"FDACTIONSTATUS","action_error_output":"true","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper"}},{"name":"677fea9d-52a7-48df-bd8c-032cb3d0ce5f.__dont_treat_as_error__","label":"1➛Don\u0027t Treat as Error","reference_display":"Don\u0027t Treat as Error","type":"boolean","base_type":"boolean","attributes":{"uiType":"boolean","visible_in_ui":"false","action_error_output":"true","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper"}},{"name":"677fea9d-52a7-48df-bd8c-032cb3d0ce5f.__action_status__","label":"1➛Action Status","reference_display":"Action Status","type":"object","base_type":"object","attributes":{"uiType":"object","co_type_name":"FDACTIONSTATUS","action_error_output":"true","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper"}},{"name":"subflow.notification_id","label":"Input➛Notification ID","reference":"","reference_display":"","type":"string","base_type":"string","column_name":"","attributes":{"uiType":"string","uiTypeLabel":"String","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","uiUniqueId":"7d55d6d1-2b76-4723-8dae-0403de2cb1fb","sourceUiUniqueId":"","sourceType":"","sourceId":""}},{"name":"subflow.partner_url","label":"Input➛Partner URL","reference":"","reference_display":"","type":"url","base_type":"url","column_name":"","attributes":{"uiType":"url","uiTypeLabel":"URL","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","uiUniqueId":"1e582457-d6e5-4882-b2bb-c7308e71d025","sourceUiUniqueId":"","sourceType":"","sourceId":""}},{"name":"subflow.enterprise_url","label":"Input➛Enterprise URL","reference":"","reference_display":"","type":"url","base_type":"url","column_name":"","attributes":{"uiType":"url","uiTypeLabel":"URL","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","uiUniqueId":"fd4558af-fea8-4595-93f9-82765b77a5b1","sourceUiUniqueId":"","sourceType":"","sourceId":""}},{"name":"subflow.session_id","label":"Input➛Session ID","reference":"","reference_display":"","type":"string","base_type":"string","column_name":"","attributes":{"uiType":"string","uiTypeLabel":"String","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","uiUniqueId":"2407350c-54e0-43ab-8940-ac3dc8e8e4b5","sourceUiUniqueId":"","sourceType":"","sourceId":""}},{"name":"subflow.action_id","label":"Input➛Action ID","reference":"","reference_display":"","type":"string","base_type":"string","column_name":"","attributes":{"uiType":"string","uiTypeLabel":"String","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","uiUniqueId":"19489009-19b1-4082-b691-66e218a478fd","sourceUiUniqueId":"","sourceType":"","sourceId":""}},{"name":"subflow.records","label":"Input➛Records","reference":"","reference_display":"","type":"json","base_type":"json","column_name":"","attributes":{"uiType":"json","uiTypeLabel":"JSON","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","uiUniqueId":"ea1997e4-c4e4-418d-8903-e7ce25d801ad","sourceUiUniqueId":"","sourceType":"","sourceId":""}},{"name":"81830cae-18d4-4583-aed0-5b8f9ef04173.errormessage","label":"2➛Error Message","reference_display":"Error Message","type":"string","base_type":"string","attributes":{"uiTypeLabel":"String","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","pwd2droppable":"true","uiType":"string","uiUniqueId":"d369ce8d-0ae0-4902-8de2-173110ac60ab"}},{"name":"81830cae-18d4-4583-aed0-5b8f9ef04173.status","label":"2➛Status","reference_display":"Status","type":"choice","base_type":"choice","attributes":{"uiTypeLabel":"Choice","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","uiType":"choice","uiUniqueId":"d82a5d1c-a59c-4bd9-a9eb-8403e1cf8ce9"}},{"name":"81830cae-18d4-4583-aed0-5b8f9ef04173.recorddetails","label":"2➛Record Details","reference_display":"Record Details","type":"dynamic_object","base_type":"dynamic_object","attributes":{"element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","dynamic":"true","uiUniqueId":"4a2dd908-a6dc-495e-8bde-e6f27f5afad5"}},{"name":"283e7eaf-50cb-45d7-b886-efe81238857f.errormessage","label":"2➛Error Message","reference_display":"Error Message","type":"string","base_type":"string","attributes":{"uiTypeLabel":"String","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","pwd2droppable":"true","uiType":"string","uiUniqueId":"d369ce8d-0ae0-4902-8de2-173110ac60ab"}},{"name":"283e7eaf-50cb-45d7-b886-efe81238857f.status","label":"2➛Status","reference_display":"Status","type":"choice","base_type":"choice","attributes":{"uiTypeLabel":"Choice","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","uiType":"choice","uiUniqueId":"d82a5d1c-a59c-4bd9-a9eb-8403e1cf8ce9"}},{"name":"283e7eaf-50cb-45d7-b886-efe81238857f.recorddetails","label":"2➛Record Details","reference_display":"Record Details","type":"dynamic_object","base_type":"dynamic_object","attributes":{"element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","dynamic":"true","uiUniqueId":"4a2dd908-a6dc-495e-8bde-e6f27f5afad5"}},{"name":"37ba414d-a22c-4c96-9e57-3fcff8d9b239.errormessage","label":"1➛Error Message","reference_display":"Error Message","type":"string","base_type":"string","attributes":{"uiType":"string","uiTypeLabel":"String","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","pwd2droppable":"true","uiUniqueId":"4b6dbda5-3907-4a88-aae8-3c42283f6ec2"}},{"name":"37ba414d-a22c-4c96-9e57-3fcff8d9b239.status","label":"1➛Status","reference_display":"Status","type":"choice","base_type":"choice","attributes":{"uiType":"choice","uiTypeLabel":"Choice","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","uiUniqueId":"5ac92bd7-928c-4d9b-a675-66891f2357b6"}},{"name":"37ba414d-a22c-4c96-9e57-3fcff8d9b239.records","label":"1➛Records","reference_display":"Records","type":"array.object","base_type":"array.object","attributes":{"child_type":"object","child_type_label":"Object","child_name":"records.Records_child0","child_label":"Records_child0"}},{"name":"76407f5d-4b74-424e-9fd8-544d0a5c2386.errormessage","label":"1➛Error Message","reference_display":"Error Message","type":"string","base_type":"string","attributes":{"uiTypeLabel":"String","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","pwd2droppable":"true","uiType":"string","uiUniqueId":"d369ce8d-0ae0-4902-8de2-173110ac60ab"}},{"name":"76407f5d-4b74-424e-9fd8-544d0a5c2386.status","label":"1➛Status","reference_display":"Status","type":"choice","base_type":"choice","attributes":{"uiTypeLabel":"Choice","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","uiType":"choice","uiUniqueId":"d82a5d1c-a59c-4bd9-a9eb-8403e1cf8ce9"}},{"name":"76407f5d-4b74-424e-9fd8-544d0a5c2386.recorddetails","label":"1➛Record Details","reference_display":"Record Details","type":"dynamic_object","base_type":"dynamic_object","attributes":{"element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","dynamic":"true","uiUniqueId":"83cceab9-28c3-4d5f-bf29-ef2f4fa28abc"}},{"name":"fd81f22d-294b-414b-a1a9-150d0e4b90c3.recorddetails.AccountId","label":"1➛Record Details➛Account ID","type":"string","base_type":"string"},{"name":"fd81f22d-294b-414b-a1a9-150d0e4b90c3.errormessage","label":"1➛Error Message","type":"string","base_type":"string","attributes":{"uiTypeLabel":"String","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","pwd2droppable":"true","uiType":"string","uiUniqueId":"d369ce8d-0ae0-4902-8de2-173110ac60ab"}},{"name":"fd81f22d-294b-414b-a1a9-150d0e4b90c3.status","label":"1➛Status","type":"choice","base_type":"choice","attributes":{"uiTypeLabel":"Choice","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","uiType":"choice","uiUniqueId":"d82a5d1c-a59c-4bd9-a9eb-8403e1cf8ce9"}},{"name":"fd81f22d-294b-414b-a1a9-150d0e4b90c3.recorddetails","label":"1➛Record Details","reference_display":"Record Details","type":"dynamic_object","base_type":"dynamic_object","attributes":{"element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","dynamic":"true","uiUniqueId":"83cceab9-28c3-4d5f-bf29-ef2f4fa28abc"}},{"name":"1a494875-69df-4193-ab71-bfd66089f993.record_details","label":"1➛Record Details","reference_display":"Record Details","type":"object","base_type":"object","attributes":{"dynamic":"true","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","uiUniqueId":"83cceab9-28c3-4d5f-bf29-ef2f4fa28abc"}},{"name":"1a494875-69df-4193-ab71-bfd66089f993.status","label":"1➛Status","reference_display":"Status","type":"choice","base_type":"choice","attributes":{"uiType":"choice","uiTypeLabel":"Choice","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","uiUniqueId":"d82a5d1c-a59c-4bd9-a9eb-8403e1cf8ce9"}},{"name":"1a494875-69df-4193-ab71-bfd66089f993.error_message","label":"1➛Error Message","reference_display":"Error Message","type":"string","base_type":"string","attributes":{"uiType":"string","uiTypeLabel":"String","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","pwd2droppable":"true","uiUniqueId":"d369ce8d-0ae0-4902-8de2-173110ac60ab"}},{"name":"1a494875-69df-4193-ab71-bfd66089f993.record_details.AccountId","label":"1➛Record Details➛Account ID","type":"string","base_type":"string"},{"name":"f2f2d324-e16c-46c1-b4f8-beb7827d3b6f.order_details","label":"2.1.2➛Order Details","reference_display":"Order Details","type":"string","base_type":"string","attributes":{"uiType":"string","uiTypeLabel":"String","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","pwd2droppable":"true","uiUniqueId":"1003675f-1ebd-4b68-acda-c2cdf58f2b72"}},{"name":"f2f2d324-e16c-46c1-b4f8-beb7827d3b6f.status","label":"2.1.2➛Status","reference_display":"Status","type":"choice","base_type":"choice","attributes":{"uiType":"choice","uiTypeLabel":"Choice","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","uiUniqueId":"bd72c7cf-ac30-4008-b554-907c2e063885"}},{"name":"f2f2d324-e16c-46c1-b4f8-beb7827d3b6f.error_message","label":"2.1.2➛Error Message","reference_display":"Error Message","type":"string","base_type":"string","attributes":{"uiType":"string","uiTypeLabel":"String","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","pwd2droppable":"true","uiUniqueId":"5fb14679-2e69-42f9-9572-82a5038a5e58"}},{"name":"1a494875-69df-4193-ab71-bfd66089f993.recorddetails","label":"1➛Record Details","reference_display":"Record Details","type":"object","base_type":"object","attributes":{"dynamic":"true","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","uiUniqueId":"83cceab9-28c3-4d5f-bf29-ef2f4fa28abc"}},{"name":"1a494875-69df-4193-ab71-bfd66089f993.errormessage","label":"1➛Error Message","reference_display":"Error Message","type":"string","base_type":"string","attributes":{"uiType":"string","uiTypeLabel":"String","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","pwd2droppable":"true","uiUniqueId":"d369ce8d-0ae0-4902-8de2-173110ac60ab"}},{"name":"677fea9d-52a7-48df-bd8c-032cb3d0ce5f.records","label":"1➛Records","reference_display":"Records","type":"array.object","base_type":"array.object","attributes":{"uiTypeLabel":"Array.Object","co_type_name":"FD9cc4bc5da0cbd89065a5ce304e1b8bd1","child_label":"Record","child_type_label":"Object","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","uiType":"array.object","child_type":"object","child_name":"record","child_uiUniqueId":"67cf6476-9db4-4cca-8829-71c27b60c9ba","uiUniqueId":"7797763a-11dd-414c-9a77-b7ba763fec91"}},{"name":"677fea9d-52a7-48df-bd8c-032cb3d0ce5f.status","label":"1➛Status","reference_display":"Status","type":"choice","base_type":"choice","attributes":{"uiType":"choice","uiTypeLabel":"Choice","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","uiUniqueId":"6633dc7c-49bf-4bc2-8cc7-48b3efec287b"}},{"name":"677fea9d-52a7-48df-bd8c-032cb3d0ce5f.error_message","label":"1➛Error Message","reference_display":"Error Message","type":"string","base_type":"string","attributes":{"uiType":"string","uiTypeLabel":"String","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","pwd2droppable":"true","uiUniqueId":"6fe7339b-b36d-4e88-8fd9-622540579129"}},{"name":"306dc0b2-73de-4cd0-bcbe-1dc80a593760.item","label":"2➛Record","reference_display":"Record","type":"object","base_type":"object","attributes":{"pills_draggable_inside_block":"true","pills_draggable_outside_block":"false"}}]</label_cache>
+        <master>true</master>
+        <name>PoC Task Subflow</name>
+        <natlang/>
+        <outputs/>
+        <parent_flow display_value="PoC Task Subflow">a0ce743f87f67c10652484809bbb3570</parent_flow>
+        <remote_trigger_id/>
+        <run_as>system</run_as>
+        <run_with_roles/>
+        <sc_callable>false</sc_callable>
+        <status>published</status>
+        <sys_class_name>sys_hub_flow_snapshot</sys_class_name>
+        <sys_created_by>durizel@hilti.com</sys_created_by>
+        <sys_created_on>2021-10-01 12:46:08</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>811181b787bafc103dff653f8bbb351a</sys_id>
+        <sys_mod_count>4</sys_mod_count>
+        <sys_name/>
+        <sys_overrides/>
+        <sys_package/>
+        <sys_policy/>
+        <sys_scope display_value="PoC">a4e25f4487ba34103dff653f8bbb3546</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>durizel@hilti.com</sys_updated_by>
+        <sys_updated_on>2021-10-01 15:50:08</sys_updated_on>
+        <type>subflow</type>
+    </sys_hub_flow_snapshot>
+    <sys_translated_text action="delete_multiple" query="documentkey=811181b787bafc103dff653f8bbb351a"/>
+    <sys_variable_value action="delete_multiple" query="document_key=811181b787bafc103dff653f8bbb351a"/>
+    <sys_flow_cat_variable_model action="delete_multiple" query="id=811181b787bafc103dff653f8bbb351a^sys_idNOT IN8d1181b787bafc103dff653f8bbb351a"/>
+    <sys_flow_cat_variable_model action="INSERT_OR_UPDATE">
+        <id>811181b787bafc103dff653f8bbb351a</id>
+        <name>Task Subflow</name>
+        <sys_created_by>durizel@hilti.com</sys_created_by>
+        <sys_created_on>2021-10-01 12:46:08</sys_created_on>
+        <sys_id>8d1181b787bafc103dff653f8bbb351a</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_scope/>
+        <sys_updated_by>durizel@hilti.com</sys_updated_by>
+        <sys_updated_on>2021-10-01 12:46:08</sys_updated_on>
+    </sys_flow_cat_variable_model>
+    <sys_hub_flow_input action="delete_multiple" query="model=811181b787bafc103dff653f8bbb351a^sys_idNOT IN051181b787bafc103dff653f8bbb353f,051181b787bafc103dff653f8bbb3554,191181b787bafc103dff653f8bbb3569,8d1181b787bafc103dff653f8bbb351b,8d1181b787bafc103dff653f8bbb355e,c91181b787bafc103dff653f8bbb3549"/>
+    <sys_hub_flow_input action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <array>false</array>
+        <array_denormalized>false</array_denormalized>
+        <attributes>element_mapping_provider=com.glide.flow_design.action.data.FlowDesignVariableMapper,uiType=string,uiTypeLabel=String,uiUniqueId=2407350c-54e0-43ab-8940-ac3dc8e8e4b5</attributes>
+        <audit>false</audit>
+        <calculation><![CDATA[(function calculatedFieldValue(current) {
+
+	// Add your code here
+	return '';  // return the calculated value
+
+})(current);]]></calculation>
+        <choice/>
+        <choice_field/>
+        <choice_table/>
+        <column_label/>
+        <comments/>
+        <create_roles/>
+        <default_value/>
+        <defaultsort/>
+        <delete_roles/>
+        <dependent/>
+        <dependent_on_field/>
+        <display>false</display>
+        <dynamic_creation>false</dynamic_creation>
+        <dynamic_creation_script/>
+        <dynamic_default_value/>
+        <dynamic_ref_qual/>
+        <element>session_id</element>
+        <element_reference>false</element_reference>
+        <foreign_database/>
+        <function_definition/>
+        <function_field>false</function_field>
+        <help/>
+        <hint/>
+        <internal_type display_value="String">string</internal_type>
+        <label>Session ID</label>
+        <mandatory>false</mandatory>
+        <max_length>8000</max_length>
+        <model display_value="PoC Task Subflow">811181b787bafc103dff653f8bbb351a</model>
+        <model_id>811181b787bafc103dff653f8bbb351a</model_id>
+        <model_table>sys_hub_flow_snapshot</model_table>
+        <name>var__m_sys_hub_flow_input_811181b787bafc103dff653f8bbb351a</name>
+        <next_element/>
+        <order>2</order>
+        <primary>false</primary>
+        <read_only>false</read_only>
+        <read_roles/>
+        <reference/>
+        <reference_cascade_rule/>
+        <reference_floats>false</reference_floats>
+        <reference_key/>
+        <reference_qual/>
+        <reference_qual_condition/>
+        <reference_type/>
+        <sizeclass/>
+        <spell_check>false</spell_check>
+        <staged>false</staged>
+        <sys_class_name>sys_hub_flow_input</sys_class_name>
+        <sys_created_by>durizel@hilti.com</sys_created_by>
+        <sys_created_on>2021-10-01 12:46:08</sys_created_on>
+        <sys_id>051181b787bafc103dff653f8bbb353f</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package/>
+        <sys_policy/>
+        <sys_scope display_value="PoC">a4e25f4487ba34103dff653f8bbb3546</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>durizel@hilti.com</sys_updated_by>
+        <sys_updated_on>2021-10-01 12:46:08</sys_updated_on>
+        <table_reference>false</table_reference>
+        <text_index>false</text_index>
+        <unique>false</unique>
+        <use_dependent_field>false</use_dependent_field>
+        <use_dynamic_default>false</use_dynamic_default>
+        <use_reference_qualifier>simple</use_reference_qualifier>
+        <virtual>false</virtual>
+        <widget/>
+        <write_roles/>
+        <xml_view>false</xml_view>
+    </sys_hub_flow_input>
+    <sys_hub_flow_input action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <array>false</array>
+        <array_denormalized>false</array_denormalized>
+        <attributes>element_mapping_provider=com.glide.flow_design.action.data.FlowDesignVariableMapper,uiType=url,uiTypeLabel=URL,uiUniqueId=1e582457-d6e5-4882-b2bb-c7308e71d025</attributes>
+        <audit>false</audit>
+        <calculation><![CDATA[(function calculatedFieldValue(current) {
+
+	// Add your code here
+	return '';  // return the calculated value
+
+})(current);]]></calculation>
+        <choice/>
+        <choice_field/>
+        <choice_table/>
+        <column_label/>
+        <comments/>
+        <create_roles/>
+        <default_value/>
+        <defaultsort/>
+        <delete_roles/>
+        <dependent/>
+        <dependent_on_field/>
+        <display>false</display>
+        <dynamic_creation>false</dynamic_creation>
+        <dynamic_creation_script/>
+        <dynamic_default_value/>
+        <dynamic_ref_qual/>
+        <element>partner_url</element>
+        <element_reference>false</element_reference>
+        <foreign_database/>
+        <function_definition/>
+        <function_field>false</function_field>
+        <help/>
+        <hint/>
+        <internal_type display_value="URL">url</internal_type>
+        <label>Partner URL</label>
+        <mandatory>true</mandatory>
+        <max_length>1024</max_length>
+        <model display_value="PoC Task Subflow">811181b787bafc103dff653f8bbb351a</model>
+        <model_id>811181b787bafc103dff653f8bbb351a</model_id>
+        <model_table>sys_hub_flow_snapshot</model_table>
+        <name>var__m_sys_hub_flow_input_811181b787bafc103dff653f8bbb351a</name>
+        <next_element/>
+        <order>4</order>
+        <primary>false</primary>
+        <read_only>false</read_only>
+        <read_roles/>
+        <reference/>
+        <reference_cascade_rule/>
+        <reference_floats>false</reference_floats>
+        <reference_key/>
+        <reference_qual/>
+        <reference_qual_condition/>
+        <reference_type/>
+        <sizeclass/>
+        <spell_check>false</spell_check>
+        <staged>false</staged>
+        <sys_class_name>sys_hub_flow_input</sys_class_name>
+        <sys_created_by>durizel@hilti.com</sys_created_by>
+        <sys_created_on>2021-10-01 12:46:08</sys_created_on>
+        <sys_id>051181b787bafc103dff653f8bbb3554</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package/>
+        <sys_policy/>
+        <sys_scope display_value="PoC">a4e25f4487ba34103dff653f8bbb3546</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>durizel@hilti.com</sys_updated_by>
+        <sys_updated_on>2021-10-01 12:46:08</sys_updated_on>
+        <table_reference>false</table_reference>
+        <text_index>false</text_index>
+        <unique>false</unique>
+        <use_dependent_field>false</use_dependent_field>
+        <use_dynamic_default>false</use_dynamic_default>
+        <use_reference_qualifier>simple</use_reference_qualifier>
+        <virtual>false</virtual>
+        <widget/>
+        <write_roles/>
+        <xml_view>false</xml_view>
+    </sys_hub_flow_input>
+    <sys_hub_flow_input action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <array>false</array>
+        <array_denormalized>false</array_denormalized>
+        <attributes>element_mapping_provider=com.glide.flow_design.action.data.FlowDesignVariableMapper,uiType=json,uiTypeLabel=JSON,uiUniqueId=ea1997e4-c4e4-418d-8903-e7ce25d801ad</attributes>
+        <audit>false</audit>
+        <calculation><![CDATA[(function calculatedFieldValue(current) {
+
+	// Add your code here
+	return '';  // return the calculated value
+
+})(current);]]></calculation>
+        <choice/>
+        <choice_field/>
+        <choice_table/>
+        <column_label/>
+        <comments/>
+        <create_roles/>
+        <default_value/>
+        <defaultsort/>
+        <delete_roles/>
+        <dependent/>
+        <dependent_on_field/>
+        <display>false</display>
+        <dynamic_creation>false</dynamic_creation>
+        <dynamic_creation_script/>
+        <dynamic_default_value/>
+        <dynamic_ref_qual/>
+        <element>records</element>
+        <element_reference>false</element_reference>
+        <foreign_database/>
+        <function_definition/>
+        <function_field>false</function_field>
+        <help/>
+        <hint/>
+        <internal_type display_value="JSON">json</internal_type>
+        <label>Records</label>
+        <mandatory>true</mandatory>
+        <max_length>8000</max_length>
+        <model display_value="PoC Task Subflow">811181b787bafc103dff653f8bbb351a</model>
+        <model_id>811181b787bafc103dff653f8bbb351a</model_id>
+        <model_table>sys_hub_flow_snapshot</model_table>
+        <name>var__m_sys_hub_flow_input_811181b787bafc103dff653f8bbb351a</name>
+        <next_element/>
+        <order>6</order>
+        <primary>false</primary>
+        <read_only>false</read_only>
+        <read_roles/>
+        <reference/>
+        <reference_cascade_rule/>
+        <reference_floats>false</reference_floats>
+        <reference_key/>
+        <reference_qual/>
+        <reference_qual_condition/>
+        <reference_type/>
+        <sizeclass/>
+        <spell_check>false</spell_check>
+        <staged>false</staged>
+        <sys_class_name>sys_hub_flow_input</sys_class_name>
+        <sys_created_by>durizel@hilti.com</sys_created_by>
+        <sys_created_on>2021-10-01 12:46:09</sys_created_on>
+        <sys_id>191181b787bafc103dff653f8bbb3569</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package/>
+        <sys_policy/>
+        <sys_scope display_value="PoC">a4e25f4487ba34103dff653f8bbb3546</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>durizel@hilti.com</sys_updated_by>
+        <sys_updated_on>2021-10-01 12:46:09</sys_updated_on>
+        <table_reference>false</table_reference>
+        <text_index>false</text_index>
+        <unique>false</unique>
+        <use_dependent_field>false</use_dependent_field>
+        <use_dynamic_default>false</use_dynamic_default>
+        <use_reference_qualifier>simple</use_reference_qualifier>
+        <virtual>false</virtual>
+        <widget/>
+        <write_roles/>
+        <xml_view>false</xml_view>
+    </sys_hub_flow_input>
+    <sys_hub_flow_input action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <array>false</array>
+        <array_denormalized>false</array_denormalized>
+        <attributes>element_mapping_provider=com.glide.flow_design.action.data.FlowDesignVariableMapper,uiType=string,uiTypeLabel=String,uiUniqueId=19489009-19b1-4082-b691-66e218a478fd</attributes>
+        <audit>false</audit>
+        <calculation><![CDATA[(function calculatedFieldValue(current) {
+
+	// Add your code here
+	return '';  // return the calculated value
+
+})(current);]]></calculation>
+        <choice/>
+        <choice_field/>
+        <choice_table/>
+        <column_label/>
+        <comments/>
+        <create_roles/>
+        <default_value/>
+        <defaultsort/>
+        <delete_roles/>
+        <dependent/>
+        <dependent_on_field/>
+        <display>false</display>
+        <dynamic_creation>false</dynamic_creation>
+        <dynamic_creation_script/>
+        <dynamic_default_value/>
+        <dynamic_ref_qual/>
+        <element>action_id</element>
+        <element_reference>false</element_reference>
+        <foreign_database/>
+        <function_definition/>
+        <function_field>false</function_field>
+        <help/>
+        <hint/>
+        <internal_type display_value="String">string</internal_type>
+        <label>Action ID</label>
+        <mandatory>true</mandatory>
+        <max_length>8000</max_length>
+        <model display_value="PoC Task Subflow">811181b787bafc103dff653f8bbb351a</model>
+        <model_id>811181b787bafc103dff653f8bbb351a</model_id>
+        <model_table>sys_hub_flow_snapshot</model_table>
+        <name>var__m_sys_hub_flow_input_811181b787bafc103dff653f8bbb351a</name>
+        <next_element/>
+        <order>1</order>
+        <primary>false</primary>
+        <read_only>false</read_only>
+        <read_roles/>
+        <reference/>
+        <reference_cascade_rule/>
+        <reference_floats>false</reference_floats>
+        <reference_key/>
+        <reference_qual/>
+        <reference_qual_condition/>
+        <reference_type/>
+        <sizeclass/>
+        <spell_check>false</spell_check>
+        <staged>false</staged>
+        <sys_class_name>sys_hub_flow_input</sys_class_name>
+        <sys_created_by>durizel@hilti.com</sys_created_by>
+        <sys_created_on>2021-10-01 12:46:08</sys_created_on>
+        <sys_id>8d1181b787bafc103dff653f8bbb351b</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package/>
+        <sys_policy/>
+        <sys_scope display_value="PoC">a4e25f4487ba34103dff653f8bbb3546</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>durizel@hilti.com</sys_updated_by>
+        <sys_updated_on>2021-10-01 12:46:08</sys_updated_on>
+        <table_reference>false</table_reference>
+        <text_index>false</text_index>
+        <unique>false</unique>
+        <use_dependent_field>false</use_dependent_field>
+        <use_dynamic_default>false</use_dynamic_default>
+        <use_reference_qualifier>simple</use_reference_qualifier>
+        <virtual>false</virtual>
+        <widget/>
+        <write_roles/>
+        <xml_view>false</xml_view>
+    </sys_hub_flow_input>
+    <sys_hub_flow_input action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <array>false</array>
+        <array_denormalized>false</array_denormalized>
+        <attributes>element_mapping_provider=com.glide.flow_design.action.data.FlowDesignVariableMapper,uiType=string,uiTypeLabel=String,uiUniqueId=7d55d6d1-2b76-4723-8dae-0403de2cb1fb</attributes>
+        <audit>false</audit>
+        <calculation><![CDATA[(function calculatedFieldValue(current) {
+
+	// Add your code here
+	return '';  // return the calculated value
+
+})(current);]]></calculation>
+        <choice/>
+        <choice_field/>
+        <choice_table/>
+        <column_label/>
+        <comments/>
+        <create_roles/>
+        <default_value/>
+        <defaultsort/>
+        <delete_roles/>
+        <dependent/>
+        <dependent_on_field/>
+        <display>false</display>
+        <dynamic_creation>false</dynamic_creation>
+        <dynamic_creation_script/>
+        <dynamic_default_value/>
+        <dynamic_ref_qual/>
+        <element>notification_id</element>
+        <element_reference>false</element_reference>
+        <foreign_database/>
+        <function_definition/>
+        <function_field>false</function_field>
+        <help/>
+        <hint/>
+        <internal_type display_value="String">string</internal_type>
+        <label>Notification ID</label>
+        <mandatory>true</mandatory>
+        <max_length>8000</max_length>
+        <model display_value="PoC Task Subflow">811181b787bafc103dff653f8bbb351a</model>
+        <model_id>811181b787bafc103dff653f8bbb351a</model_id>
+        <model_table>sys_hub_flow_snapshot</model_table>
+        <name>var__m_sys_hub_flow_input_811181b787bafc103dff653f8bbb351a</name>
+        <next_element/>
+        <order>5</order>
+        <primary>false</primary>
+        <read_only>false</read_only>
+        <read_roles/>
+        <reference/>
+        <reference_cascade_rule/>
+        <reference_floats>false</reference_floats>
+        <reference_key/>
+        <reference_qual/>
+        <reference_qual_condition/>
+        <reference_type/>
+        <sizeclass/>
+        <spell_check>false</spell_check>
+        <staged>false</staged>
+        <sys_class_name>sys_hub_flow_input</sys_class_name>
+        <sys_created_by>durizel@hilti.com</sys_created_by>
+        <sys_created_on>2021-10-01 12:46:08</sys_created_on>
+        <sys_id>8d1181b787bafc103dff653f8bbb355e</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package/>
+        <sys_policy/>
+        <sys_scope display_value="PoC">a4e25f4487ba34103dff653f8bbb3546</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>durizel@hilti.com</sys_updated_by>
+        <sys_updated_on>2021-10-01 12:46:08</sys_updated_on>
+        <table_reference>false</table_reference>
+        <text_index>false</text_index>
+        <unique>false</unique>
+        <use_dependent_field>false</use_dependent_field>
+        <use_dynamic_default>false</use_dynamic_default>
+        <use_reference_qualifier>simple</use_reference_qualifier>
+        <virtual>false</virtual>
+        <widget/>
+        <write_roles/>
+        <xml_view>false</xml_view>
+    </sys_hub_flow_input>
+    <sys_hub_flow_input action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <array>false</array>
+        <array_denormalized>false</array_denormalized>
+        <attributes>element_mapping_provider=com.glide.flow_design.action.data.FlowDesignVariableMapper,uiType=url,uiTypeLabel=URL,uiUniqueId=fd4558af-fea8-4595-93f9-82765b77a5b1</attributes>
+        <audit>false</audit>
+        <calculation><![CDATA[(function calculatedFieldValue(current) {
+
+	// Add your code here
+	return '';  // return the calculated value
+
+})(current);]]></calculation>
+        <choice/>
+        <choice_field/>
+        <choice_table/>
+        <column_label/>
+        <comments/>
+        <create_roles/>
+        <default_value/>
+        <defaultsort/>
+        <delete_roles/>
+        <dependent/>
+        <dependent_on_field/>
+        <display>false</display>
+        <dynamic_creation>false</dynamic_creation>
+        <dynamic_creation_script/>
+        <dynamic_default_value/>
+        <dynamic_ref_qual/>
+        <element>enterprise_url</element>
+        <element_reference>false</element_reference>
+        <foreign_database/>
+        <function_definition/>
+        <function_field>false</function_field>
+        <help/>
+        <hint/>
+        <internal_type display_value="URL">url</internal_type>
+        <label>Enterprise URL</label>
+        <mandatory>true</mandatory>
+        <max_length>1024</max_length>
+        <model display_value="PoC Task Subflow">811181b787bafc103dff653f8bbb351a</model>
+        <model_id>811181b787bafc103dff653f8bbb351a</model_id>
+        <model_table>sys_hub_flow_snapshot</model_table>
+        <name>var__m_sys_hub_flow_input_811181b787bafc103dff653f8bbb351a</name>
+        <next_element/>
+        <order>3</order>
+        <primary>false</primary>
+        <read_only>false</read_only>
+        <read_roles/>
+        <reference/>
+        <reference_cascade_rule/>
+        <reference_floats>false</reference_floats>
+        <reference_key/>
+        <reference_qual/>
+        <reference_qual_condition/>
+        <reference_type/>
+        <sizeclass/>
+        <spell_check>false</spell_check>
+        <staged>false</staged>
+        <sys_class_name>sys_hub_flow_input</sys_class_name>
+        <sys_created_by>durizel@hilti.com</sys_created_by>
+        <sys_created_on>2021-10-01 12:46:08</sys_created_on>
+        <sys_id>c91181b787bafc103dff653f8bbb3549</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package/>
+        <sys_policy/>
+        <sys_scope display_value="PoC">a4e25f4487ba34103dff653f8bbb3546</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>durizel@hilti.com</sys_updated_by>
+        <sys_updated_on>2021-10-01 12:46:08</sys_updated_on>
+        <table_reference>false</table_reference>
+        <text_index>false</text_index>
+        <unique>false</unique>
+        <use_dependent_field>false</use_dependent_field>
+        <use_dynamic_default>false</use_dynamic_default>
+        <use_reference_qualifier>simple</use_reference_qualifier>
+        <virtual>false</virtual>
+        <widget/>
+        <write_roles/>
+        <xml_view>false</xml_view>
+    </sys_hub_flow_input>
+    <sys_hub_action_instance action="delete_multiple" query="flow=811181b787bafc103dff653f8bbb351a^sys_idNOT IN1d1181b787bafc103dff653f8bbb35a1,511181b787bafc103dff653f8bbb359b,ad1181b787bafc103dff653f8bbb35b3,e51181b787bafc103dff653f8bbb35bc"/>
+    <sys_hub_action_instance action="INSERT_OR_UPDATE">
+        <action_inputs/>
+        <action_type display_value="Log">0e0ae8c2531003003bf1d9109ec587c8</action_type>
+        <action_type_parent/>
+        <comment/>
+        <compiled_snapshot>5bc1bcc6531003003bf1d9109ec587d4</compiled_snapshot>
+        <display_text/>
+        <flow display_value="PoC Task Subflow">811181b787bafc103dff653f8bbb351a</flow>
+        <order>3</order>
+        <parent_ui_id>306dc0b2-73de-4cd0-bcbe-1dc80a593760</parent_ui_id>
+        <sys_class_name>sys_hub_action_instance</sys_class_name>
+        <sys_created_by>durizel@hilti.com</sys_created_by>
+        <sys_created_on>2021-10-01 12:46:09</sys_created_on>
+        <sys_id>1d1181b787bafc103dff653f8bbb35a1</sys_id>
+        <sys_mod_count>18</sys_mod_count>
+        <sys_scope display_value="PoC">a4e25f4487ba34103dff653f8bbb3546</sys_scope>
+        <sys_updated_by>durizel@hilti.com</sys_updated_by>
+        <sys_updated_on>2021-10-01 15:50:08</sys_updated_on>
+        <ui_id>8b106946-0609-43ea-bae8-87b2b8a2a494</ui_id>
+    </sys_hub_action_instance>
+    <sys_variable_value action="delete_multiple" query="document_key=1d1181b787bafc103dff653f8bbb35a1"/>
+    <sys_element_mapping action="delete_multiple" query="table=var__m_sys_hub_action_input_0e0ae8c2531003003bf1d9109ec587c8^id=1d1181b787bafc103dff653f8bbb35a1"/>
+    <sys_hub_input_scripts action="delete_multiple" query="instance=1d1181b787bafc103dff653f8bbb35a1^sys_idNOT IN991181b787bafc103dff653f8bbb35a2"/>
+    <sys_hub_input_scripts action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <input_name>log_message</input_name>
+        <instance>1d1181b787bafc103dff653f8bbb35a1</instance>
+        <referenced_table>sys_hub_action_instance</referenced_table>
+        <script>{"log_message":{"scriptActive":true,"script":"/*\n**Access Flow/Action data using the fd_data object. Script must return a value.\n**example: var shortDesc \u003d fd_data.trigger.current.short_description;\n**return shortDesc;\n*/\nvar recData \u003d fd_data._2__for_each.item.record_data;\nvar parsedResult \u003d JSON.parse(recData);\nvar recId \u003d parsedResult[\"sf:Id\"];\nreturn \"Id of the Record in Incoming Webhook Payload is : \" + recId;"}}</script>
+        <sys_created_by>durizel@hilti.com</sys_created_by>
+        <sys_created_on>2021-10-01 12:46:10</sys_created_on>
+        <sys_id>991181b787bafc103dff653f8bbb35a2</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>durizel@hilti.com</sys_updated_by>
+        <sys_updated_on>2021-10-01 12:46:10</sys_updated_on>
+    </sys_hub_input_scripts>
+    <sys_hub_action_instance action="INSERT_OR_UPDATE">
+        <action_inputs/>
+        <action_inputs/>
+        <action_type display_value="Subflow Helper Action">500238d91bcbd890c9527669cc4bcbc7</action_type>
+        <action_type_parent/>
+        <comment/>
+        <compiled_snapshot>500238d91bcbd890c9527669cc4bcbc7</compiled_snapshot>
+        <display_text/>
+        <flow display_value="PoC Task Subflow">811181b787bafc103dff653f8bbb351a</flow>
+        <order>1</order>
+        <parent_ui_id/>
+        <sys_class_name>sys_hub_action_instance</sys_class_name>
+        <sys_created_by>durizel@hilti.com</sys_created_by>
+        <sys_created_on>2021-10-01 12:46:09</sys_created_on>
+        <sys_id>511181b787bafc103dff653f8bbb359b</sys_id>
+        <sys_mod_count>18</sys_mod_count>
+        <sys_scope display_value="PoC">a4e25f4487ba34103dff653f8bbb3546</sys_scope>
+        <sys_updated_by>durizel@hilti.com</sys_updated_by>
+        <sys_updated_on>2021-10-01 15:50:08</sys_updated_on>
+        <ui_id>677fea9d-52a7-48df-bd8c-032cb3d0ce5f</ui_id>
+    </sys_hub_action_instance>
+    <sys_variable_value action="delete_multiple" query="document_key=511181b787bafc103dff653f8bbb359b"/>
+    <sys_element_mapping action="delete_multiple" query="id=511181b787bafc103dff653f8bbb359b"/>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>records_input</field>
+        <id>511181b787bafc103dff653f8bbb359b</id>
+        <sys_created_by>durizel@hilti.com</sys_created_by>
+        <sys_created_on>2021-10-01 12:46:09</sys_created_on>
+        <sys_id>151181b787bafc103dff653f8bbb359c</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>durizel@hilti.com</sys_updated_by>
+        <sys_updated_on>2021-10-01 12:46:09</sys_updated_on>
+        <table>var__m_sys_hub_action_input_500238d91bcbd890c9527669cc4bcbc7</table>
+        <value>{{subflow.records}}</value>
+    </sys_element_mapping>
+    <sys_hub_action_instance action="INSERT_OR_UPDATE">
+        <action_inputs/>
+        <action_inputs/>
+        <action_type display_value="Look Up Record">9d09f99587003300663ca1bb36cb0ba3</action_type>
+        <action_type_parent/>
+        <comment/>
+        <compiled_snapshot>b93f42810b30030085c083eb37673a63</compiled_snapshot>
+        <display_text/>
+        <flow display_value="PoC Task Subflow">811181b787bafc103dff653f8bbb351a</flow>
+        <order>5</order>
+        <parent_ui_id>306dc0b2-73de-4cd0-bcbe-1dc80a593760</parent_ui_id>
+        <sys_class_name>sys_hub_action_instance</sys_class_name>
+        <sys_created_by>durizel@hilti.com</sys_created_by>
+        <sys_created_on>2021-10-01 12:46:10</sys_created_on>
+        <sys_id>ad1181b787bafc103dff653f8bbb35b3</sys_id>
+        <sys_mod_count>18</sys_mod_count>
+        <sys_scope display_value="PoC">a4e25f4487ba34103dff653f8bbb3546</sys_scope>
+        <sys_updated_by>durizel@hilti.com</sys_updated_by>
+        <sys_updated_on>2021-10-01 15:50:08</sys_updated_on>
+        <ui_id>cfab1c5a-c12c-4201-82df-b214651fd820</ui_id>
+    </sys_hub_action_instance>
+    <sys_variable_value action="delete_multiple" query="document_key=ad1181b787bafc103dff653f8bbb35b3"/>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_hub_action_instance</document>
+        <document_key>ad1181b787bafc103dff653f8bbb35b3</document_key>
+        <order>0</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>durizel@hilti.com</sys_created_by>
+        <sys_created_on>2021-10-01 12:46:10</sys_created_on>
+        <sys_id>211181b787bafc103dff653f8bbb35b6</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>durizel@hilti.com</sys_updated_by>
+        <sys_updated_on>2021-10-01 12:46:10</sys_updated_on>
+        <value>x_hirp_poc_task</value>
+        <variable display_value="Table">d909f99587003300663ca1bb36cb0ba4</variable>
+    </sys_variable_value>
+    <sys_element_mapping action="delete_multiple" query="id=ad1181b787bafc103dff653f8bbb35b3"/>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>conditions</field>
+        <id>ad1181b787bafc103dff653f8bbb35b3</id>
+        <sys_created_by>durizel@hilti.com</sys_created_by>
+        <sys_created_on>2021-10-01 12:46:10</sys_created_on>
+        <sys_id>e91181b787bafc103dff653f8bbb35b5</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>durizel@hilti.com</sys_updated_by>
+        <sys_updated_on>2021-10-01 12:46:10</sys_updated_on>
+        <table>var__m_sys_hub_action_input_9d09f99587003300663ca1bb36cb0ba3</table>
+        <value>sys_id={{flow_variable.sn_task_id}}</value>
+    </sys_element_mapping>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>table</field>
+        <id>ad1181b787bafc103dff653f8bbb35b3</id>
+        <sys_created_by>durizel@hilti.com</sys_created_by>
+        <sys_created_on>2021-10-01 12:46:10</sys_created_on>
+        <sys_id>ad1181b787bafc103dff653f8bbb35b5</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>durizel@hilti.com</sys_updated_by>
+        <sys_updated_on>2021-10-01 12:46:10</sys_updated_on>
+        <table>var__m_sys_hub_action_input_9d09f99587003300663ca1bb36cb0ba3</table>
+        <value/>
+    </sys_element_mapping>
+    <sys_hub_action_instance action="INSERT_OR_UPDATE">
+        <action_inputs/>
+        <action_inputs/>
+        <action_type display_value="Update Record">baf174c8c3c232002841b63b12d3aee4</action_type>
+        <action_type_parent/>
+        <comment/>
+        <compiled_snapshot>baf174c8c3c232002841b63b12d3aee4</compiled_snapshot>
+        <display_text/>
+        <flow display_value="PoC Task Subflow">811181b787bafc103dff653f8bbb351a</flow>
+        <order>6</order>
+        <parent_ui_id>306dc0b2-73de-4cd0-bcbe-1dc80a593760</parent_ui_id>
+        <sys_class_name>sys_hub_action_instance</sys_class_name>
+        <sys_created_by>durizel@hilti.com</sys_created_by>
+        <sys_created_on>2021-10-01 12:46:10</sys_created_on>
+        <sys_id>e51181b787bafc103dff653f8bbb35bc</sys_id>
+        <sys_mod_count>18</sys_mod_count>
+        <sys_scope display_value="PoC">a4e25f4487ba34103dff653f8bbb3546</sys_scope>
+        <sys_updated_by>durizel@hilti.com</sys_updated_by>
+        <sys_updated_on>2021-10-01 15:50:08</sys_updated_on>
+        <ui_id>3a910c1e-e9f5-423e-ac7e-4ff949c24805</ui_id>
+    </sys_hub_action_instance>
+    <sys_variable_value action="delete_multiple" query="document_key=e51181b787bafc103dff653f8bbb35bc"/>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_hub_action_instance</document>
+        <document_key>e51181b787bafc103dff653f8bbb35bc</document_key>
+        <order>50</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>durizel@hilti.com</sys_created_by>
+        <sys_created_on>2021-10-01 12:46:10</sys_created_on>
+        <sys_id>691181b787bafc103dff653f8bbb35be</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>durizel@hilti.com</sys_updated_by>
+        <sys_updated_on>2021-10-01 12:46:10</sys_updated_on>
+        <value>x_hirp_poc_task</value>
+        <variable display_value="Table">1fd27c8cc3c632002841b63b12d3aeb9</variable>
+    </sys_variable_value>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_hub_action_instance</document>
+        <document_key>e51181b787bafc103dff653f8bbb35bc</document_key>
+        <order>100</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>durizel@hilti.com</sys_created_by>
+        <sys_created_on>2021-10-01 12:46:10</sys_created_on>
+        <sys_id>a51181b787bafc103dff653f8bbb35be</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_updated_by>durizel@hilti.com</sys_updated_by>
+        <sys_updated_on>2021-10-01 15:50:07</sys_updated_on>
+        <value>status=CLOSED^=</value>
+        <variable display_value="Fields">e7d270ccc3c632002841b63b12d3ae8b</variable>
+    </sys_variable_value>
+    <sys_element_mapping action="delete_multiple" query="id=e51181b787bafc103dff653f8bbb35bc"/>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>record</field>
+        <id>e51181b787bafc103dff653f8bbb35bc</id>
+        <sys_created_by>durizel@hilti.com</sys_created_by>
+        <sys_created_on>2021-10-01 12:46:10</sys_created_on>
+        <sys_id>611181b787bafc103dff653f8bbb35be</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>durizel@hilti.com</sys_updated_by>
+        <sys_updated_on>2021-10-01 12:46:10</sys_updated_on>
+        <table>var__m_sys_hub_action_input_baf174c8c3c232002841b63b12d3aee4</table>
+        <value>{{cfab1c5a-c12c-4201-82df-b214651fd820.Record}}</value>
+    </sys_element_mapping>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>table_name</field>
+        <id>e51181b787bafc103dff653f8bbb35bc</id>
+        <sys_created_by>durizel@hilti.com</sys_created_by>
+        <sys_created_on>2021-10-01 12:46:10</sys_created_on>
+        <sys_id>ad1181b787bafc103dff653f8bbb35bd</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>durizel@hilti.com</sys_updated_by>
+        <sys_updated_on>2021-10-01 12:46:10</sys_updated_on>
+        <table>var__m_sys_hub_action_input_baf174c8c3c232002841b63b12d3aee4</table>
+        <value/>
+    </sys_element_mapping>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>values</field>
+        <id>e51181b787bafc103dff653f8bbb35bc</id>
+        <sys_created_by>durizel@hilti.com</sys_created_by>
+        <sys_created_on>2021-10-01 12:46:10</sys_created_on>
+        <sys_id>251181b787bafc103dff653f8bbb35be</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>durizel@hilti.com</sys_updated_by>
+        <sys_updated_on>2021-10-01 12:46:10</sys_updated_on>
+        <table>var__m_sys_hub_action_input_baf174c8c3c232002841b63b12d3aee4</table>
+        <value/>
+    </sys_element_mapping>
+    <sys_hub_flow_logic action="delete_multiple" query="flow=811181b787bafc103dff653f8bbb351a^sys_idNOT IN9d1181b787bafc103dff653f8bbb3582,9d1181b787bafc103dff653f8bbb3586"/>
+    <sys_hub_flow_logic action="INSERT_OR_UPDATE">
+        <block display_value="">820d5c7387b67c10652484809bbb35b7</block>
+        <comment/>
+        <connected_to/>
+        <decision_table/>
+        <decision_table_inputs/>
+        <display_text/>
+        <extended_inputs/>
+        <flow display_value="PoC Task Subflow">811181b787bafc103dff653f8bbb351a</flow>
+        <flow_variable/>
+        <flow_variables_assigned/>
+        <inputs/>
+        <inputs/>
+        <logic_definition display_value="For Each">098e1dc5c3e232002841b63b12d3ae33</logic_definition>
+        <order>2</order>
+        <outputs_assigned/>
+        <outputs_to_assign/>
+        <parent_ui_id/>
+        <sys_class_name>sys_hub_flow_logic</sys_class_name>
+        <sys_created_by>durizel@hilti.com</sys_created_by>
+        <sys_created_on>2021-10-01 12:46:09</sys_created_on>
+        <sys_id>9d1181b787bafc103dff653f8bbb3582</sys_id>
+        <sys_mod_count>10</sys_mod_count>
+        <sys_scope display_value="PoC">a4e25f4487ba34103dff653f8bbb3546</sys_scope>
+        <sys_updated_by>durizel@hilti.com</sys_updated_by>
+        <sys_updated_on>2021-10-01 15:50:08</sys_updated_on>
+        <ui_id>306dc0b2-73de-4cd0-bcbe-1dc80a593760</ui_id>
+        <workflow_inputs/>
+        <workflow_reference/>
+    </sys_hub_flow_logic>
+    <sys_variable_value action="delete_multiple" query="document_key=9d1181b787bafc103dff653f8bbb3582"/>
+    <sys_element_mapping action="delete_multiple" query="table=var__m_sys_hub_flow_variable_811181b787bafc103dff653f8bbb351a^id=9d1181b787bafc103dff653f8bbb3582"/>
+    <sys_element_mapping action="delete_multiple" query="id=9d1181b787bafc103dff653f8bbb3582"/>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>items</field>
+        <id>9d1181b787bafc103dff653f8bbb3582</id>
+        <sys_created_by>durizel@hilti.com</sys_created_by>
+        <sys_created_on>2021-10-01 12:46:09</sys_created_on>
+        <sys_id>551181b787bafc103dff653f8bbb3586</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>durizel@hilti.com</sys_updated_by>
+        <sys_updated_on>2021-10-01 12:46:09</sys_updated_on>
+        <table>var__m_sys_hub_flow_logic_input_098e1dc5c3e232002841b63b12d3ae33</table>
+        <value>{{677fea9d-52a7-48df-bd8c-032cb3d0ce5f.records}}</value>
+    </sys_element_mapping>
+    <sys_hub_flow_logic action="INSERT_OR_UPDATE">
+        <block display_value="">a13db4bb87f67c10652484809bbb3531</block>
+        <comment/>
+        <connected_to/>
+        <decision_table/>
+        <decision_table_inputs/>
+        <display_text/>
+        <extended_inputs/>
+        <flow display_value="PoC Task Subflow">811181b787bafc103dff653f8bbb351a</flow>
+        <flow_variable/>
+        <flow_variables_assigned>sn_task_id</flow_variables_assigned>
+        <inputs/>
+        <logic_definition display_value="Set Flow Variables">4f787d1e0f9b0010ecf0cc52ff767ea0</logic_definition>
+        <order>4</order>
+        <outputs_assigned/>
+        <outputs_to_assign/>
+        <parent_ui_id>306dc0b2-73de-4cd0-bcbe-1dc80a593760</parent_ui_id>
+        <sys_class_name>sys_hub_flow_logic</sys_class_name>
+        <sys_created_by>durizel@hilti.com</sys_created_by>
+        <sys_created_on>2021-10-01 12:46:09</sys_created_on>
+        <sys_id>9d1181b787bafc103dff653f8bbb3586</sys_id>
+        <sys_mod_count>10</sys_mod_count>
+        <sys_scope display_value="PoC">a4e25f4487ba34103dff653f8bbb3546</sys_scope>
+        <sys_updated_by>durizel@hilti.com</sys_updated_by>
+        <sys_updated_on>2021-10-01 15:50:08</sys_updated_on>
+        <ui_id>e52ada3f-6ade-4088-aed8-d44ff69aced0</ui_id>
+        <workflow_inputs/>
+        <workflow_reference/>
+    </sys_hub_flow_logic>
+    <sys_variable_value action="delete_multiple" query="document_key=9d1181b787bafc103dff653f8bbb3586"/>
+    <sys_element_mapping action="delete_multiple" query="table=var__m_sys_hub_flow_variable_811181b787bafc103dff653f8bbb351a^id=9d1181b787bafc103dff653f8bbb3586"/>
+    <sys_hub_input_scripts action="delete_multiple" query="instance=9d1181b787bafc103dff653f8bbb3586^sys_idNOT IN111181b787bafc103dff653f8bbb3588"/>
+    <sys_hub_input_scripts action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <input_name>sn_task_id</input_name>
+        <instance>9d1181b787bafc103dff653f8bbb3586</instance>
+        <referenced_table>sys_hub_flow_logic</referenced_table>
+        <script>{"sn_task_id":{"scriptActive":true,"script":"/*\n**Access Flow/Action data using the fd_data object. Script must return a value.\n**example: var shortDesc \u003d fd_data.trigger.current.short_description;\n**return shortDesc;\n*/\nvar recData \u003d fd_data._2__for_each.item.record_data;\nvar parsedResult \u003d JSON.parse(recData);\nvar recId \u003d parsedResult[\"sf:SN_Id__c\"];\nreturn recId;"}}</script>
+        <sys_created_by>durizel@hilti.com</sys_created_by>
+        <sys_created_on>2021-10-01 12:46:09</sys_created_on>
+        <sys_id>111181b787bafc103dff653f8bbb3588</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_updated_by>durizel@hilti.com</sys_updated_by>
+        <sys_updated_on>2021-10-01 13:32:36</sys_updated_on>
+    </sys_hub_input_scripts>
+    <sys_hub_flow_variable action="delete_multiple" query="model=811181b787bafc103dff653f8bbb351a^sys_idNOT IN551181b787bafc103dff653f8bbb357b"/>
+    <sys_hub_flow_variable action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <array>false</array>
+        <array_denormalized>false</array_denormalized>
+        <attributes>element_mapping_provider=com.glide.flow_design.action.data.FlowDesignVariableMapper,uiType=string,uiTypeLabel=String,uiUniqueId=1836a1e2-7016-4704-9f70-531086df5fd8</attributes>
+        <audit>false</audit>
+        <calculation><![CDATA[(function calculatedFieldValue(current) {
+
+	// Add your code here
+	return '';  // return the calculated value
+
+})(current);]]></calculation>
+        <choice/>
+        <choice_field/>
+        <choice_table/>
+        <column_label/>
+        <comments/>
+        <create_roles/>
+        <default_value/>
+        <defaultsort/>
+        <delete_roles/>
+        <dependent/>
+        <dependent_on_field/>
+        <display>false</display>
+        <dynamic_creation>false</dynamic_creation>
+        <dynamic_creation_script/>
+        <dynamic_default_value/>
+        <dynamic_ref_qual/>
+        <element>sn_task_id</element>
+        <element_reference>false</element_reference>
+        <foreign_database/>
+        <function_definition/>
+        <function_field>false</function_field>
+        <help/>
+        <hint/>
+        <internal_type display_value="String">string</internal_type>
+        <label>SN_Task_Id</label>
+        <mandatory>false</mandatory>
+        <max_length>8000</max_length>
+        <model display_value="PoC Task Subflow">811181b787bafc103dff653f8bbb351a</model>
+        <model_id>811181b787bafc103dff653f8bbb351a</model_id>
+        <model_table>sys_hub_flow_snapshot</model_table>
+        <name>var__m_sys_hub_flow_variable_811181b787bafc103dff653f8bbb351a</name>
+        <next_element/>
+        <order>0</order>
+        <primary>false</primary>
+        <read_only>false</read_only>
+        <read_roles/>
+        <reference/>
+        <reference_cascade_rule/>
+        <reference_floats>false</reference_floats>
+        <reference_key/>
+        <reference_qual/>
+        <reference_qual_condition/>
+        <reference_type/>
+        <sizeclass/>
+        <spell_check>false</spell_check>
+        <staged>false</staged>
+        <sys_class_name>sys_hub_flow_variable</sys_class_name>
+        <sys_created_by>durizel@hilti.com</sys_created_by>
+        <sys_created_on>2021-10-01 12:46:09</sys_created_on>
+        <sys_id>551181b787bafc103dff653f8bbb357b</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>SN_Task_Id</sys_name>
+        <sys_package display_value="PoC" source="x_hirp_poc">a4e25f4487ba34103dff653f8bbb3546</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="PoC">a4e25f4487ba34103dff653f8bbb3546</sys_scope>
+        <sys_update_name>sys_hub_flow_variable_551181b787bafc103dff653f8bbb357b</sys_update_name>
+        <sys_updated_by>durizel@hilti.com</sys_updated_by>
+        <sys_updated_on>2021-10-01 12:46:09</sys_updated_on>
+        <table_reference>false</table_reference>
+        <text_index>false</text_index>
+        <unique>false</unique>
+        <use_dependent_field>false</use_dependent_field>
+        <use_dynamic_default>false</use_dynamic_default>
+        <use_reference_qualifier>simple</use_reference_qualifier>
+        <virtual>false</virtual>
+        <widget/>
+        <write_roles/>
+        <xml_view>false</xml_view>
+    </sys_hub_flow_variable>
+    <sys_documentation action="delete_multiple" query="name=var__m_sys_hub_flow_input_811181b787bafc103dff653f8bbb351a^sys_idNOT IN411181b787bafc103dff653f8bbb355b,8d1181b787bafc103dff653f8bbb3545,951181b787bafc103dff653f8bbb3570,c51181b787bafc103dff653f8bbb353b,c51181b787bafc103dff653f8bbb3550,c91181b787bafc103dff653f8bbb3565"/>
+    <sys_documentation action="INSERT_OR_UPDATE">
+        <element>partner_url</element>
+        <help/>
+        <hint/>
+        <label>Partner URL</label>
+        <language>en</language>
+        <name>var__m_sys_hub_flow_input_811181b787bafc103dff653f8bbb351a</name>
+        <plural/>
+        <sys_class_name>sys_documentation</sys_class_name>
+        <sys_created_by>durizel@hilti.com</sys_created_by>
+        <sys_created_on>2021-10-01 12:46:08</sys_created_on>
+        <sys_id>411181b787bafc103dff653f8bbb355b</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="PoC" source="x_hirp_poc">a4e25f4487ba34103dff653f8bbb3546</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="PoC">a4e25f4487ba34103dff653f8bbb3546</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>durizel@hilti.com</sys_updated_by>
+        <sys_updated_on>2021-10-01 12:46:08</sys_updated_on>
+        <url/>
+        <url_target/>
+    </sys_documentation>
+    <sys_documentation action="INSERT_OR_UPDATE">
+        <element>session_id</element>
+        <help/>
+        <hint/>
+        <label>Session ID</label>
+        <language>en</language>
+        <name>var__m_sys_hub_flow_input_811181b787bafc103dff653f8bbb351a</name>
+        <plural/>
+        <sys_class_name>sys_documentation</sys_class_name>
+        <sys_created_by>durizel@hilti.com</sys_created_by>
+        <sys_created_on>2021-10-01 12:46:08</sys_created_on>
+        <sys_id>8d1181b787bafc103dff653f8bbb3545</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="PoC" source="x_hirp_poc">a4e25f4487ba34103dff653f8bbb3546</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="PoC">a4e25f4487ba34103dff653f8bbb3546</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>durizel@hilti.com</sys_updated_by>
+        <sys_updated_on>2021-10-01 12:46:08</sys_updated_on>
+        <url/>
+        <url_target/>
+    </sys_documentation>
+    <sys_documentation action="INSERT_OR_UPDATE">
+        <element>records</element>
+        <help/>
+        <hint/>
+        <label>Records</label>
+        <language>en</language>
+        <name>var__m_sys_hub_flow_input_811181b787bafc103dff653f8bbb351a</name>
+        <plural/>
+        <sys_class_name>sys_documentation</sys_class_name>
+        <sys_created_by>durizel@hilti.com</sys_created_by>
+        <sys_created_on>2021-10-01 12:46:09</sys_created_on>
+        <sys_id>951181b787bafc103dff653f8bbb3570</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="PoC" source="x_hirp_poc">a4e25f4487ba34103dff653f8bbb3546</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="PoC">a4e25f4487ba34103dff653f8bbb3546</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>durizel@hilti.com</sys_updated_by>
+        <sys_updated_on>2021-10-01 12:46:09</sys_updated_on>
+        <url/>
+        <url_target/>
+    </sys_documentation>
+    <sys_documentation action="INSERT_OR_UPDATE">
+        <element>action_id</element>
+        <help/>
+        <hint/>
+        <label>Action ID</label>
+        <language>en</language>
+        <name>var__m_sys_hub_flow_input_811181b787bafc103dff653f8bbb351a</name>
+        <plural/>
+        <sys_class_name>sys_documentation</sys_class_name>
+        <sys_created_by>durizel@hilti.com</sys_created_by>
+        <sys_created_on>2021-10-01 12:46:08</sys_created_on>
+        <sys_id>c51181b787bafc103dff653f8bbb353b</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="PoC" source="x_hirp_poc">a4e25f4487ba34103dff653f8bbb3546</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="PoC">a4e25f4487ba34103dff653f8bbb3546</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>durizel@hilti.com</sys_updated_by>
+        <sys_updated_on>2021-10-01 12:46:08</sys_updated_on>
+        <url/>
+        <url_target/>
+    </sys_documentation>
+    <sys_documentation action="INSERT_OR_UPDATE">
+        <element>enterprise_url</element>
+        <help/>
+        <hint/>
+        <label>Enterprise URL</label>
+        <language>en</language>
+        <name>var__m_sys_hub_flow_input_811181b787bafc103dff653f8bbb351a</name>
+        <plural/>
+        <sys_class_name>sys_documentation</sys_class_name>
+        <sys_created_by>durizel@hilti.com</sys_created_by>
+        <sys_created_on>2021-10-01 12:46:08</sys_created_on>
+        <sys_id>c51181b787bafc103dff653f8bbb3550</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="PoC" source="x_hirp_poc">a4e25f4487ba34103dff653f8bbb3546</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="PoC">a4e25f4487ba34103dff653f8bbb3546</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>durizel@hilti.com</sys_updated_by>
+        <sys_updated_on>2021-10-01 12:46:08</sys_updated_on>
+        <url/>
+        <url_target/>
+    </sys_documentation>
+    <sys_documentation action="INSERT_OR_UPDATE">
+        <element>notification_id</element>
+        <help/>
+        <hint/>
+        <label>Notification ID</label>
+        <language>en</language>
+        <name>var__m_sys_hub_flow_input_811181b787bafc103dff653f8bbb351a</name>
+        <plural/>
+        <sys_class_name>sys_documentation</sys_class_name>
+        <sys_created_by>durizel@hilti.com</sys_created_by>
+        <sys_created_on>2021-10-01 12:46:09</sys_created_on>
+        <sys_id>c91181b787bafc103dff653f8bbb3565</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="PoC" source="x_hirp_poc">a4e25f4487ba34103dff653f8bbb3546</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="PoC">a4e25f4487ba34103dff653f8bbb3546</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>durizel@hilti.com</sys_updated_by>
+        <sys_updated_on>2021-10-01 12:46:09</sys_updated_on>
+        <url/>
+        <url_target/>
+    </sys_documentation>
+    <sys_hub_flow action="update">
+        <sys_id>a0ce743f87f67c10652484809bbb3570</sys_id>
+        <latest_snapshot>811181b787bafc103dff653f8bbb351a</latest_snapshot>
+    </sys_hub_flow>
+</record_update>

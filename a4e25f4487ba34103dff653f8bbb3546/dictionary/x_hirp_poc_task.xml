@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?><database>
-    <element label="Task" max_length="40" name="x_hirp_poc_task" type="collection">
+    <element label="Task" max_length="40" name="x_hirp_poc_task" sizeclass="235" type="collection">
         <element label="CommentOnTask" max_length="30" name="comment" type="string"/>
-        <element attributes="edge_encryption_enabled=true" label="PK" max_length="40" name="pk" type="string"/>
+        <element label="SF_ID" max_length="18" name="sf_id" read_only="true" type="string"/>
+        <element display="true" label="Status" max_length="255" name="status" type="string"/>
         <element default="javascript:current.getTableName();" label="Class" max_length="80" name="sys_class_name" type="sys_class_name"/>
         <index name="index">
             <element name="sys_class_name"/>
