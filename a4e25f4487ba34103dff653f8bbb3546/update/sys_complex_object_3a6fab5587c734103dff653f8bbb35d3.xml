@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_complex_object">
+    <sys_complex_object action="INSERT_OR_UPDATE">
+        <label/>
+        <name>FD766fab55c4c734107e160a2821c5fed3</name>
+        <namespace>FlowDesigner</namespace>
+        <scope_name>a4e25f4487ba34103dff653f8bbb3546</scope_name>
+        <serialized_content>{"FlowDesigner:FD766fab55c4c734107e160a2821c5fed3":{},"FlowDesigner:FD766fab55c4c734107e160a2821c5fed3.$type_facets":{"SimpleMapFacet":"{\"sourceId\":\"\",\"default_value\":\"\",\"label\":\"account\",\"mandatory\":\"false\",\"uiUniqueId\":\"6b14b836-00ac-4b5f-a5ff-cb188013a9d6\",\"uiTypeLabel\":\"Object\",\"co_type_name\":\"FD766fab55c4c734107e160a2821c5fed3\",\"element_mapping_provider\":\"com.glide.flow_design.action.data.FlowDesignVariableMapper\",\"read_only\":\"false\",\"sourceUiUniqueId\":\"\",\"sourceType\":\"\",\"hint\":null,\"uiType\":\"object\",\"order\":\"1\",\"max_length\":\"65000\"}"}}</serialized_content>
+        <sys_class_name>sys_complex_object</sys_class_name>
+        <sys_created_by>durizel@hilti.com</sys_created_by>
+        <sys_created_on>2021-10-06 17:18:43</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>3a6fab5587c734103dff653f8bbb35d3</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>FD766fab55c4c734107e160a2821c5fed3</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="PoC" source="x_hirp_poc">a4e25f4487ba34103dff653f8bbb3546</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="PoC">a4e25f4487ba34103dff653f8bbb3546</sys_scope>
+        <sys_update_name>sys_complex_object_3a6fab5587c734103dff653f8bbb35d3</sys_update_name>
+        <sys_updated_by>durizel@hilti.com</sys_updated_by>
+        <sys_updated_on>2021-10-06 17:18:43</sys_updated_on>
+        <type>complex_object_schema</type>
+    </sys_complex_object>
+</record_update>

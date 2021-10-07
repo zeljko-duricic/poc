@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_decision_input">
+    <sys_decision_input action="DELETE">
+        <active>true</active>
+        <array>false</array>
+        <array_denormalized>false</array_denormalized>
+        <attributes>element_mapping_provider=com.glide.decision_table.data.DecisionTableVariableMapper</attributes>
+        <audit>false</audit>
+        <calculation><![CDATA[(function calculatedFieldValue(current) {
+
+	// Add your code here
+	return '';  // return the calculated value
+
+})(current);]]></calculation>
+        <choice/>
+        <choice_field/>
+        <choice_table/>
+        <column_label/>
+        <comments/>
+        <create_roles/>
+        <default_value/>
+        <defaultsort/>
+        <delete_roles/>
+        <dependent/>
+        <dependent_on_field/>
+        <display>true</display>
+        <dynamic_creation>false</dynamic_creation>
+        <dynamic_creation_script/>
+        <dynamic_default_value/>
+        <dynamic_ref_qual/>
+        <element>u_subject</element>
+        <element_reference>false</element_reference>
+        <foreign_database/>
+        <function_definition/>
+        <function_field>false</function_field>
+        <help/>
+        <hint/>
+        <internal_type display_value="String">string</internal_type>
+        <label>Subject</label>
+        <mandatory>false</mandatory>
+        <max_length>255</max_length>
+        <model display_value="BO Assignment">a53f7915874334103dff653f8bbb35f6</model>
+        <model_id>a53f7915874334103dff653f8bbb35f6</model_id>
+        <model_table>sys_decision</model_table>
+        <name>var__m_sys_decision_input_a53f7915874334103dff653f8bbb35f6</name>
+        <next_element/>
+        <order>100</order>
+        <primary>false</primary>
+        <read_only>false</read_only>
+        <read_roles/>
+        <reference/>
+        <reference_cascade_rule/>
+        <reference_floats>false</reference_floats>
+        <reference_key/>
+        <reference_qual/>
+        <reference_qual_condition/>
+        <reference_type/>
+        <sizeclass/>
+        <spell_check>false</spell_check>
+        <staged>false</staged>
+        <sys_class_name>sys_decision_input</sys_class_name>
+        <sys_created_by>durizel@hilti.com</sys_created_by>
+        <sys_created_on>2021-10-06 09:09:53</sys_created_on>
+        <sys_id>906f3d15874334103dff653f8bbb358c</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Subject</sys_name>
+        <sys_package display_value="PoC" source="x_hirp_poc">a4e25f4487ba34103dff653f8bbb3546</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="PoC">a4e25f4487ba34103dff653f8bbb3546</sys_scope>
+        <sys_update_name>sys_decision_input_906f3d15874334103dff653f8bbb358c</sys_update_name>
+        <sys_updated_by>durizel@hilti.com</sys_updated_by>
+        <sys_updated_on>2021-10-06 09:09:53</sys_updated_on>
+        <table_reference>false</table_reference>
+        <text_index>false</text_index>
+        <unique>false</unique>
+        <use_dependent_field>false</use_dependent_field>
+        <use_dynamic_default>false</use_dynamic_default>
+        <use_reference_qualifier>simple</use_reference_qualifier>
+        <virtual>false</virtual>
+        <widget/>
+        <write_roles/>
+        <xml_view>false</xml_view>
+    </sys_decision_input>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="PoC">a4e25f4487ba34103dff653f8bbb3546</application>
+        <file_path/>
+        <instance_id>da2b2b47db2e301052dd2f17d49619ca</instance_id>
+        <instance_name>hiltiexperiencepov</instance_name>
+        <name>sys_decision_input_906f3d15874334103dff653f8bbb358c</name>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update table="sys_decision_input"&gt;&lt;sys_decision_input action="INSERT_OR_UPDATE"&gt;&lt;active&gt;true&lt;/active&gt;&lt;array&gt;false&lt;/array&gt;&lt;array_denormalized&gt;false&lt;/array_denormalized&gt;&lt;attributes&gt;element_mapping_provider=com.glide.decision_table.data.DecisionTableVariableMapper&lt;/attributes&gt;&lt;audit&gt;false&lt;/audit&gt;&lt;calculation&gt;&lt;![CDATA[(function calculatedFieldValue(current) {
+
+	// Add your code here
+	return '';  // return the calculated value
+
+})(current);]]&gt;&lt;/calculation&gt;&lt;choice/&gt;&lt;choice_field/&gt;&lt;choice_table/&gt;&lt;column_label/&gt;&lt;comments/&gt;&lt;create_roles/&gt;&lt;default_value/&gt;&lt;defaultsort/&gt;&lt;delete_roles/&gt;&lt;dependent/&gt;&lt;dependent_on_field/&gt;&lt;display&gt;true&lt;/display&gt;&lt;dynamic_creation&gt;false&lt;/dynamic_creation&gt;&lt;dynamic_creation_script/&gt;&lt;dynamic_default_value/&gt;&lt;dynamic_ref_qual/&gt;&lt;element&gt;u_subject&lt;/element&gt;&lt;element_reference&gt;false&lt;/element_reference&gt;&lt;foreign_database/&gt;&lt;function_definition/&gt;&lt;function_field&gt;false&lt;/function_field&gt;&lt;help/&gt;&lt;hint/&gt;&lt;internal_type display_value="String"&gt;string&lt;/internal_type&gt;&lt;label&gt;Subject&lt;/label&gt;&lt;mandatory&gt;false&lt;/mandatory&gt;&lt;max_length&gt;255&lt;/max_length&gt;&lt;model display_value="BO Assignment"&gt;a53f7915874334103dff653f8bbb35f6&lt;/model&gt;&lt;model_id&gt;a53f7915874334103dff653f8bbb35f6&lt;/model_id&gt;&lt;model_table&gt;sys_decision&lt;/model_table&gt;&lt;name&gt;var__m_sys_decision_input_a53f7915874334103dff653f8bbb35f6&lt;/name&gt;&lt;next_element/&gt;&lt;order&gt;100&lt;/order&gt;&lt;primary&gt;false&lt;/primary&gt;&lt;read_only&gt;false&lt;/read_only&gt;&lt;read_roles/&gt;&lt;reference/&gt;&lt;reference_cascade_rule/&gt;&lt;reference_floats&gt;false&lt;/reference_floats&gt;&lt;reference_key/&gt;&lt;reference_qual/&gt;&lt;reference_qual_condition/&gt;&lt;reference_type/&gt;&lt;sizeclass/&gt;&lt;spell_check&gt;false&lt;/spell_check&gt;&lt;staged&gt;false&lt;/staged&gt;&lt;sys_class_name&gt;sys_decision_input&lt;/sys_class_name&gt;&lt;sys_created_by&gt;durizel@hilti.com&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2021-10-06 09:09:53&lt;/sys_created_on&gt;&lt;sys_id&gt;906f3d15874334103dff653f8bbb358c&lt;/sys_id&gt;&lt;sys_mod_count&gt;0&lt;/sys_mod_count&gt;&lt;sys_name&gt;Subject&lt;/sys_name&gt;&lt;sys_package display_value="PoC" source="x_hirp_poc"&gt;a4e25f4487ba34103dff653f8bbb3546&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="PoC"&gt;a4e25f4487ba34103dff653f8bbb3546&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_decision_input_906f3d15874334103dff653f8bbb358c&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;durizel@hilti.com&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2021-10-06 09:09:53&lt;/sys_updated_on&gt;&lt;table_reference&gt;false&lt;/table_reference&gt;&lt;text_index&gt;false&lt;/text_index&gt;&lt;unique&gt;false&lt;/unique&gt;&lt;use_dependent_field&gt;false&lt;/use_dependent_field&gt;&lt;use_dynamic_default&gt;false&lt;/use_dynamic_default&gt;&lt;use_reference_qualifier&gt;simple&lt;/use_reference_qualifier&gt;&lt;virtual&gt;false&lt;/virtual&gt;&lt;widget/&gt;&lt;write_roles/&gt;&lt;xml_view&gt;false&lt;/xml_view&gt;&lt;/sys_decision_input&gt;&lt;/record_update&gt;</payload>
+        <payload_hash>-1016267523</payload_hash>
+        <record_name>Subject</record_name>
+        <reverted_from/>
+        <source>b7b0135f873abc103dff653f8bbb3563</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>durizel@hilti.com</sys_created_by>
+        <sys_created_on>2021-10-06 09:09:54</sys_created_on>
+        <sys_id>268fbd15874334103dff653f8bbb35c5</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>17c54ddccab0000001</sys_recorded_at>
+        <sys_updated_by>durizel@hilti.com</sys_updated_by>
+        <sys_updated_on>2021-10-06 09:09:54</sys_updated_on>
+        <type>Decision Input</type>
+        <update_guid>2e8fbd15c443341021ca3194dd0898c4</update_guid>
+        <update_guid_history>2e8fbd15c443341021ca3194dd0898c4:-1016267523,aa8fbd15a84334100028c7bb44e6acc0:954214350,9a8fbd15b14334103b46ba423d1a61ba:-1016267523</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>durizel@hilti.com</sys_created_by>
+        <sys_created_on>2021-10-06 09:13:17</sys_created_on>
+        <sys_db_object display_value="" name="sys_decision_input">sys_decision_input</sys_db_object>
+        <sys_id>11e9fc3eb7f546269e66385011909364</sys_id>
+        <sys_metadata>906f3d15874334103dff653f8bbb358c</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Subject</sys_name>
+        <sys_package display_value="PoC" source="x_hirp_poc">a4e25f4487ba34103dff653f8bbb3546</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="PoC">a4e25f4487ba34103dff653f8bbb3546</sys_scope>
+        <sys_scope_delete display_value="">2f5660ff8ac94904b777e7985faa8604</sys_scope_delete>
+        <sys_update_name>sys_decision_input_906f3d15874334103dff653f8bbb358c</sys_update_name>
+        <sys_update_version display_value="sys_decision_input_906f3d15874334103dff653f8bbb358c">268fbd15874334103dff653f8bbb35c5</sys_update_version>
+        <sys_updated_by>durizel@hilti.com</sys_updated_by>
+        <sys_updated_on>2021-10-06 09:13:17</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

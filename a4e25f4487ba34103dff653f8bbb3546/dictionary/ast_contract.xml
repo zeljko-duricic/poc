@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element label="Vertrag" max_length="40" name="ast_contract" sizeclass="103" type="collection">
+        <element label="SapId" max_length="18" name="x_hirp_poc_sapid" type="string"/>
+        <element choice="3" default="Sales Handover" display="true" label="Stage" max_length="40" name="x_hirp_poc_stage" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="Care &amp; Grow" value="Care &amp; Grow"/>
+                <element inactive_on_update="false" label="Implementation" value="Implementation"/>
+                <element inactive_on_update="false" label="Intensive Care" value="Intensive Care"/>
+                <element inactive_on_update="false" label="Sales Handover" value="Sales Handover"/>
+            </choice>
+        </element>
+    </element>
+</database>

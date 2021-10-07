@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_complex_object">
+    <sys_complex_object action="INSERT_OR_UPDATE">
+        <label/>
+        <name>FDb75f47953a473410440430683191ac01</name>
+        <namespace>FlowDesigner</namespace>
+        <scope_name>a4e25f4487ba34103dff653f8bbb3546</scope_name>
+        <serialized_content>{"FlowDesigner:FDb75f47953a473410440430683191ac01":{"records":[{"$197_records":{"User":{"CommunityNickname":"String","CommunityNickname.$field_facets":{"SimpleMapFacet":"{\"uiTypeLabel\":\"String\",\"read_only\":\"false\",\"hint\":\"\",\"uiType\":\"string\",\"default_value\":\"\",\"label\":\"CommunityNickname\",\"mandatory\":\"false\",\"order\":\"1\",\"max_length\":\"0\",\"uiUniqueId\":\"b94b6a99-ae8c-4327-acdd-6130c301091c\"}"},"Id":"String","Id.$field_facets":{"SimpleMapFacet":"{\"uiTypeLabel\":\"String\",\"read_only\":\"false\",\"hint\":\"\",\"uiType\":\"string\",\"default_value\":\"\",\"label\":\"Id\",\"mandatory\":\"false\",\"order\":\"2\",\"max_length\":\"0\",\"uiUniqueId\":\"5db9e50c-8d71-4b7d-b33e-5d33b1428789\"}"}},"User.$field_facets":{"SimpleMapFacet":"{\"uiTypeLabel\":\"Object\",\"read_only\":\"false\",\"hint\":\"\",\"uiType\":\"object\",\"default_value\":\"\",\"label\":\"User\",\"mandatory\":\"false\",\"order\":\"1\",\"max_length\":\"0\",\"uiUniqueId\":\"cd2ff686-2f4c-4676-b0eb-1f0cc47f7917\"}"}}}],"records.$field_facets":{"SimpleMapFacet":"{\"default_value\":\"\",\"child_hint\":\"\",\"child_maxsize\":\"\",\"label\":\"records\",\"mandatory\":\"false\",\"child_name\":\"records_object\",\"uiUniqueId\":\"1c485230-7221-4aaf-9e75-3072af2c8350\",\"uiTypeLabel\":\"Array.Object\",\"child_label\":\"records_object\",\"child_type_label\":\"Object\",\"read_only\":\"false\",\"hint\":\"\",\"uiType\":\"array.object\",\"child_defaultValue\":\"\",\"child_type\":\"object\",\"order\":\"1\",\"max_length\":\"0\",\"child_uiUniqueId\":\"952d7b51-9c72-409f-81ee-5e5e752cea1a\"}"}},"FlowDesigner:FDb75f47953a473410440430683191ac01.$type_facets":{"SimpleMapFacet":"{\"sourceId\":\"bef9946b-0e88-4e4a-99f5-748cc4e923ac\",\"default_value\":\"\",\"label\":\"users\",\"mandatory\":\"false\",\"uiUniqueId\":\"3e107fa3-1401-4d02-9011-0e639a27daaa\",\"uiTypeLabel\":\"Object\",\"co_type_name\":\"FDb75f47953a473410440430683191ac01\",\"element_mapping_provider\":\"com.glide.flow_design.action.data.FlowDesignVariableMapper\",\"read_only\":\"false\",\"sourceType\":\"step\",\"sourceUiUniqueId\":\"8fe957d4-d7cb-4dab-a561-ca97e5673762\",\"hint\":\"\",\"uiType\":\"object\",\"order\":\"3\",\"max_length\":\"65000\"}"}}</serialized_content>
+        <sys_class_name>sys_complex_object</sys_class_name>
+        <sys_created_by>durizel@hilti.com</sys_created_by>
+        <sys_created_on>2021-10-06 14:58:42</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>7b5f4795874734103dff653f8bbb3501</sys_id>
+        <sys_mod_count>6</sys_mod_count>
+        <sys_name>FDb75f47953a473410440430683191ac01</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="PoC" source="x_hirp_poc">a4e25f4487ba34103dff653f8bbb3546</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="PoC">a4e25f4487ba34103dff653f8bbb3546</sys_scope>
+        <sys_update_name>sys_complex_object_7b5f4795874734103dff653f8bbb3501</sys_update_name>
+        <sys_updated_by>durizel@hilti.com</sys_updated_by>
+        <sys_updated_on>2021-10-06 15:12:43</sys_updated_on>
+        <type>complex_object_schema</type>
+    </sys_complex_object>
+</record_update>

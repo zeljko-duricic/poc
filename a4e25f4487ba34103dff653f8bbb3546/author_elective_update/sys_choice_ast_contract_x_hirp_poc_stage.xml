@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_choice action="INSERT_OR_UPDATE" field="x_hirp_poc_stage" table="ast_contract" version="3">
+        <sys_choice_set action="INSERT_OR_UPDATE">
+            <element>x_hirp_poc_stage</element>
+            <name>ast_contract</name>
+            <sys_class_name>sys_choice_set</sys_class_name>
+            <sys_created_by>durizel@hilti.com</sys_created_by>
+            <sys_created_on>2021-10-06 07:36:12</sys_created_on>
+            <sys_id>4e1ae511870334103dff653f8bbb357c</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>x_hirp_poc_stage</sys_name>
+            <sys_package display_value="PoC" source="x_hirp_poc">a4e25f4487ba34103dff653f8bbb3546</sys_package>
+            <sys_policy/>
+            <sys_scope display_value="PoC">a4e25f4487ba34103dff653f8bbb3546</sys_scope>
+            <sys_update_name>sys_choice_ast_contract_x_hirp_poc_stage</sys_update_name>
+            <sys_updated_by>durizel@hilti.com</sys_updated_by>
+            <sys_updated_on>2021-10-06 07:36:12</sys_updated_on>
+        </sys_choice_set>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>x_hirp_poc_stage</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Care &amp; Grow</label>
+            <language>en</language>
+            <name>ast_contract</name>
+            <sequence/>
+            <synonyms/>
+            <sys_created_by>durizel@hilti.com</sys_created_by>
+            <sys_created_on>2021-10-06 07:37:14</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>8c4a6d11870334103dff653f8bbb358e</sys_id>
+            <sys_mod_count>1</sys_mod_count>
+            <sys_updated_by>durizel@hilti.com</sys_updated_by>
+            <sys_updated_on>2021-10-06 07:37:17</sys_updated_on>
+            <value>Care &amp; Grow</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>x_hirp_poc_stage</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Implementation</label>
+            <language>en</language>
+            <name>ast_contract</name>
+            <sequence/>
+            <synonyms/>
+            <sys_created_by>durizel@hilti.com</sys_created_by>
+            <sys_created_on>2021-10-06 07:36:29</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>1e1aa911870334103dff653f8bbb35bf</sys_id>
+            <sys_mod_count>1</sys_mod_count>
+            <sys_updated_by>durizel@hilti.com</sys_updated_by>
+            <sys_updated_on>2021-10-06 07:36:38</sys_updated_on>
+            <value>Implementation</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>x_hirp_poc_stage</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Intensive Care</label>
+            <language>en</language>
+            <name>ast_contract</name>
+            <sequence/>
+            <synonyms/>
+            <sys_created_by>durizel@hilti.com</sys_created_by>
+            <sys_created_on>2021-10-06 07:36:54</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>9e2a6911870334103dff653f8bbb35ec</sys_id>
+            <sys_mod_count>1</sys_mod_count>
+            <sys_updated_by>durizel@hilti.com</sys_updated_by>
+            <sys_updated_on>2021-10-06 07:36:59</sys_updated_on>
+            <value>Intensive Care</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>x_hirp_poc_stage</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Sales Handover</label>
+            <language>en</language>
+            <name>ast_contract</name>
+            <sequence/>
+            <synonyms/>
+            <sys_created_by>durizel@hilti.com</sys_created_by>
+            <sys_created_on>2021-10-06 07:36:12</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>061ae511870334103dff653f8bbb357c</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>durizel@hilti.com</sys_updated_by>
+            <sys_updated_on>2021-10-06 07:36:12</sys_updated_on>
+            <value>Sales Handover</value>
+        </sys_choice>
+    </sys_choice>
+</record_update>

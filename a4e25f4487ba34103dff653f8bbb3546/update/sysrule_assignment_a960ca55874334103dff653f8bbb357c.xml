@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sysrule_assignment">
+    <sysrule_assignment action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <condition table="sn_customerservice_task">x_hirp_poc_salesorgSTARTSWITH0700^x_hirp_poc_stageSTARTSWITHSales Handover^EQ<item endquery="false" field="x_hirp_poc_salesorg" goto="false" newquery="false" operator="STARTSWITH" or="false" value="0700"/>
+            <item endquery="false" field="x_hirp_poc_stage" goto="false" newquery="false" operator="STARTSWITH" or="false" value="Sales Handover"/>
+            <item endquery="true" field="" goto="false" newquery="false" operator="=" or="false" value=""/>
+        </condition>
+        <description/>
+        <group/>
+        <match_conditions>ALL</match_conditions>
+        <name>Assign "Start Sales Handover" task</name>
+        <order>100</order>
+        <script>/**&#13;
+* Example:&#13;
+* The following script requires personalizing the instance to add the Malware category and the Security assignment group.&#13;
+* if (current.category == "Hardware")&#13;
+*    current.assignment_group.setDisplayValue("Hardware"); &#13;
+* else if (current.category == "Software")&#13;
+*    current.assignment_group.setDisplayValue("Software");&#13;
+* else if (current.category == "Malware")&#13;
+*    current.assignment_group.setDisplayValue("Security");	&#13;
+*&#13;
+* Another Example:&#13;
+* Release Planning Example, which assigns the last person assigned to a release to the current release.&#13;
+* current.release.product.service.assigned_to;&#13;
+*/</script>
+        <sys_class_name>sysrule_assignment</sys_class_name>
+        <sys_created_by>durizel@hilti.com</sys_created_by>
+        <sys_created_on>2021-10-06 09:18:44</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>a960ca55874334103dff653f8bbb357c</sys_id>
+        <sys_mod_count>5</sys_mod_count>
+        <sys_name>Assign "Start Sales Handover" task</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="PoC" source="x_hirp_poc">a4e25f4487ba34103dff653f8bbb3546</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="PoC">a4e25f4487ba34103dff653f8bbb3546</sys_scope>
+        <sys_update_name>sysrule_assignment_a960ca55874334103dff653f8bbb357c</sys_update_name>
+        <sys_updated_by>durizel@hilti.com</sys_updated_by>
+        <sys_updated_on>2021-10-07 08:15:58</sys_updated_on>
+        <table>sn_customerservice_task</table>
+        <user display_value="Abel Tuter">62826bf03710200044e0bfc8bcbe5df1</user>
+    </sysrule_assignment>
+</record_update>

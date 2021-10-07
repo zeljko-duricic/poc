@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element audit="true" extends="task" label="Task" max_length="40" name="sn_customerservice_task" sizeclass="14" type="collection">
+        <element label="SalesOrg" max_length="18" name="x_hirp_poc_salesorg" type="string"/>
+        <element label="SF_Id" max_length="18" name="x_hirp_poc_sf_id" type="string"/>
+        <element display="true" label="Stage" max_length="18" name="x_hirp_poc_stage" type="string"/>
+    </element>
+</database>
